@@ -29,6 +29,12 @@ class DIR:
     STOCK = os.path.join(os.path.dirname(__file__), 'stock')
     PROP = os.path.join(os.path.dirname(__file__), 'properties.yaml')
 
+if not os.path.exists(DIR.SOFTWARES):
+    os.mkdir(DIR.SOFTWARES)
+
+if not os.path.exists(DIR.STOCK):
+    os.mkdir(DIR.STOCK)
+    
 def internet():
     try:
         response = requests.get("https://www.google.com", timeout=5)

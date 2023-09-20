@@ -2,7 +2,7 @@
 
 script_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-cd ~/printer_data/gcodes/USB/*/
+cd /home/pi/printer_data/gcodes/USB/*/
 
 current_time=$(date +'%Y-%m-%d %H-%M')
 folder_name="Syncraft Installers - $current_time"

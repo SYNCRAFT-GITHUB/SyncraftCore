@@ -1,10 +1,10 @@
-cd ~
+cd /home/pi
 
 process="Revert Moonraker"
-machine_dir=~/moonraker
-stock_dir=~/SyncraftCore/stock/moonraker
-softwares_dir=~/SyncraftCore/softwares
-install_script=~/moonraker/scripts/install-moonraker.sh
+machine_dir=/home/pi/moonraker
+stock_dir=/home/pi/SyncraftCore/stock/moonraker
+softwares_dir=/home/pi/SyncraftCore/softwares
+install_script=/home/pi/moonraker/scripts/install-moonraker.sh
 
 echo "[HELPER] START: $process."
 if [ -d "$machine_dir" ]; then
@@ -12,10 +12,10 @@ if [ -d "$machine_dir" ]; then
 fi
 
 sudo cp -r $stock_dir $softwares_dir
-sudo cp -r $stock_dir ~/
+sudo cp -r $stock_dir /home/pi
 
 if [ -e "$install_script" ]; then
-    bash $install_script
+    sudo -u pi bash $install_script
 fi
 
 echo "[HELPER] DONE: $process."

@@ -1,9 +1,9 @@
-cd ~
+cd /home/pi
 
 process="Revert Syncraft X1 KlipperScreen"
-stock_dir=~/SyncraftCore/stock/KlipperScreen
-softwares_dir=~/SyncraftCore/softwares/
-machine_dir=~/KlipperScreen
+stock_dir=/home/pi/SyncraftCore/stock/KlipperScreen
+softwares_dir=/home/pi/SyncraftCore/softwares/
+machine_dir=/home/pi/KlipperScreen
 
 echo "[HELPER] START: $process."
 if [ -d "$machine_dir" ]; then
@@ -11,5 +11,5 @@ if [ -d "$machine_dir" ]; then
 fi
 
 sudo cp -r $stock_dir $softwares_dir
-sudo cp -r $stock_dir ~/
+sudo cp -r $stock_dir /home/pi
 echo "[HELPER] DONE: $process."

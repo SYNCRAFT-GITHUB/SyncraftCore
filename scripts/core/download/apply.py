@@ -75,7 +75,7 @@ for folder in os.listdir(cache_dir):
             shutil.rmtree(destination)
         shutil.copytree(source, destination)
 
-print('file distribution: cache folder')
+print('file distribution: stock folder')
 for folder in os.listdir(cache_dir):
     
     source = os.path.join(cache_dir, folder)

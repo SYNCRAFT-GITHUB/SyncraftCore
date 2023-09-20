@@ -91,6 +91,8 @@ def append_file_contents(input_file_path, output_file_path):
 
 def create_printer (pdc_dir):
     backups = os.path.join(pdc_dir, 'backups')
+    if not os.path.exists(backups):
+        os.mkdir(backups)
     for file in os.listdir(backups):
         if file in ['backup-KlipperScreen.conf', 'backup-printer.cfg', 'backup-variables.cfg']:
             file_to_copy = os.path.join(backups, file)

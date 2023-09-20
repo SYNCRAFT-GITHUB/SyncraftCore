@@ -1,9 +1,9 @@
-cd ~
+cd /home/pi
 
 process="Revert Klipper LED Effects"
-stock_dir=~/SyncraftCore/stock/klipper-led_effect
-softwares_dir=~/SyncraftCore/softwares/
-machine_dir=~/klipper-led_effect
+stock_dir=/home/pi/SyncraftCore/stock/klipper-led_effect
+softwares_dir=/home/pi/SyncraftCore/softwares/
+machine_dir=/home/pi/klipper-led_effect
 
 echo "[HELPER] START: $process."
 if [ -d "$machine_dir" ]; then
@@ -11,7 +11,7 @@ if [ -d "$machine_dir" ]; then
 fi
 
 sudo cp -r $stock_dir $softwares_dir
-sudo cp -r $stock_dir ~/
+sudo cp -r $stock_dir /home/pi
 cd "$machine_dir"
-./install-led_effect.sh
+sudo -u pi bash install-led_effect.sh
 echo "[HELPER] DONE: $process."
