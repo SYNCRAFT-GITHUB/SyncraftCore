@@ -20,7 +20,7 @@ if model == 'X1-BETA':
 if model == 'X1-DEV':
     scx_branch_ks = 'syncraftx1-dev'
     scx_branch_pdc = 'syncraftx1-dev'
-elif model == 'X2':
+if model == 'X2':
     scx_branch_ks = 'syncraftx2'
     scx_branch_pdc = 'syncraftx2'
 if model == 'X2-BETA':
