@@ -3,6 +3,7 @@
 
 # Cache Folder
 /cache
+.cache
 
 # Softwares Folder
 /softwares
@@ -12,3 +13,13 @@
 
 # properties file
 properties.yaml
+
+# Python cache
+__pycache__/
+
+# Python PIP3 Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Kiauh Script
+/scripts/kiauh
