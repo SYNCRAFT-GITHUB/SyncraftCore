@@ -5,7 +5,7 @@ import subprocess
 core = os.getcwd()
 
 class Operation:
-    def __init__(self, desc, path, format, script='apply', sudo=False, web=False, confirm=False):
+    def __init__(self, desc, path, format, script='apply', sudo=False, web=False, confirm=False, args={}):
         self.desc = desc
         self.path = path
         self.format = format
@@ -13,6 +13,7 @@ class Operation:
         self.sudo = sudo
         self.web = web
         self.confirm = confirm
+        self.args = args
 
     def apply(self):
         command: str
@@ -25,15 +26,27 @@ class Operation:
         full_cmd: str
         if os.path.exists(script_full_path):
             full_cmd = f'{command} {script_full_path}'
+            execute = f'sudo {full_cmd}'
             if self.sudo:
-                os.system(f'sudo {full_cmd}')
+                execute = f'sudo {full_cmd}'
             else:
-                os.system(full_cmd)
+                execute = full_cmd
+
+            if (self.args != {}):
+
+                for key, value in self.args.items():
+                    execute += f' --{key} "{value}"'
+
+            os.system(execute)
 
 operations = [
 
-    Operation('Set to Syncraft X1', os.path.join(core, 'scripts', 'core', 'properties', 'model', 'X1'), 'py'),
-    Operation('Set to Syncraft X2', os.path.join(core, 'scripts', 'core', 'properties', 'model', 'X2'), 'py'),
+    Operation('Set to Syncraft X1', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X1', 'type': 'stable'}),
+    Operation('Set to Syncraft X1 BETA', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X1', 'type': 'beta'}),
+    Operation('Set to Syncraft X1 DEV', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X1', 'type': 'dev'}),
+    Operation('Set to Syncraft X2', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X2', 'type': 'stable'}),
+    Operation('Set to Syncraft X2 BETA', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X2', 'type': 'beta'}),
+    Operation('Set to Syncraft X2 DEV', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X2', 'type': 'dev'}),
 
     Operation('Switch to Kiauh', os.path.join(core, 'scripts', 'kiauh'), 'sh', script='kiauh'),
 
@@ -57,4 +70,6 @@ operations = [
     Operation('Downgrade Klipper LED Effects', os.path.join(core, 'scripts', 'maintenance', 'revert', 'kle'), 'sh'),
 
     Operation('Download All (replace stock)', os.path.join(core, 'scripts', 'core', 'download'), 'py', sudo=True, web=True, confirm=True),
+
+    Operation('Build', os.path.join(core, 'scripts', 'core', 'build'), 'sh', sudo=True, web=True, confirm=True),
 ]

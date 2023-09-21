@@ -62,6 +62,9 @@ def save_config_lines(input_file_path, output_file_path):
                         config_lines.append(line)
 
         if config_lines:
+            output_dir = os.path.dirname(output_file_path)
+            if not os.path.exists(output_dir):
+                os.makedirs(output_dir)
             with open(output_file_path, 'w') as output_file:
                 output_file.writelines(config_lines)
     except:

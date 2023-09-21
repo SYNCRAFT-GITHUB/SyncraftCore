@@ -1,6 +1,9 @@
 # MacOS Finder Files
 .DS_Store
 
+# Custom Startup
+/custom_startup
+
 # Cache Folder
 /cache
 .cache
