@@ -13,7 +13,7 @@ model = prop.get('model')
 
 if model == 'X1':
     scx_branch = 'syncraftx1'
-elif model == 'X1':
+elif model == 'X2':
     scx_branch = 'syncraftx2'
 
 cache_dir = os.path.join(core, "cache", "core")
