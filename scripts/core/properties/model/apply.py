@@ -15,9 +15,9 @@ def create_model_prop(model: str, type: str) -> str:
     final_model: str = ''
 
     if 'X1' in model.upper():
-        final_model += 'syncraftx1'
+        final_model += 'X1'
     elif 'X2' in model.upper():
-        final_model += 'syncraftx2'
+        final_model += 'X1'
     else:
         print ('unknown model')
         return None
@@ -25,9 +25,9 @@ def create_model_prop(model: str, type: str) -> str:
     if (type == 'stable'):
         pass
     if (type == 'beta'):
-        final_model += '-beta'
+        final_model += '-BETA'
     if (type == 'dev'):
-        final_model += '-dev'
+        final_model += '-DEV'
 
     return final_model
 
