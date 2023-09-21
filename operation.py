@@ -71,5 +71,5 @@ operations = [
 
     Operation('Download All (replace stock)', os.path.join(core, 'scripts', 'core', 'download'), 'py', sudo=True, web=True, confirm=True),
 
-    Operation('Build', os.path.join(core, 'scripts', 'core', 'build'), 'sh', sudo=True, web=True, confirm=True),
+    Operation('Build', os.path.join(core, 'scripts', 'core', 'build'), 'py', sudo=True, web=True, confirm=True),
 ]

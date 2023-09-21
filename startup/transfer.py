@@ -113,6 +113,7 @@ if __name__ == "__main__":
         SAVECONFIG_FILE = os.path.join('/home', 'pi', 'SyncraftCore', 'cache', 'pdc', 'saveconfig.cfg')
         CACHE = os.path.join('/home', 'pi', 'SyncraftCore', 'cache', 'pdc')
         CACHE_CONFIG_FILE = os.path.join('/home', 'pi', 'SyncraftCore', 'cache', 'pdc', 'printer.cfg')
+        OVERWRITE_SCRIPT = os.path.join('/home', 'pi', 'SyncraftCore', 'scripts', 'pdc', 'overwrite', 'apply.sh')
 
     ############################################################################
     ###### INSERT IN THE ARRAY WHAT SHOULD BE BLOCKED DURING THE TRANSFER ######
@@ -136,5 +137,8 @@ if __name__ == "__main__":
         create_printer(DIR.CACHE)
         append_file_contents(DIR.SAVECONFIG_FILE, DIR.CACHE_CONFIG_FILE)
         transfer_files(DIR.CACHE, DIR.PDC_MACHINE, block_list=block)
+
+        
+        os.system(f'sudo bash {DIR.OVERWRITE_SCRIPT}')
 
     print(f"{script_name} DONE.")
