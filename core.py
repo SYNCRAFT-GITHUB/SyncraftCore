@@ -34,6 +34,17 @@ if not os.path.exists(DIR.SOFTWARES):
 
 if not os.path.exists(DIR.STOCK):
     os.mkdir(DIR.STOCK)
+
+if os.path.exists(DIR.PROP):
+    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'properties.yaml File OK' + Color.RESET))
+else:
+    data_index = {
+        "model": "X1",
+    }
+
+    with open(DIR.PROP, 'w') as yaml_file:
+        yaml.dump(data_index, yaml_file)
+    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'properties.yaml File Created' + Color.RESET))
     
 def internet():
     try:

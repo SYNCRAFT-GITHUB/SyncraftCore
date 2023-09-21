@@ -1,0 +1,14 @@
+# MacOS Finder Files
+.DS_Store
+
+# Cache Folder
+/cache
+
+# Softwares Folder
+/softwares
+
+# Stock Folder
+/stock
+
+# properties file
+properties.yaml
