@@ -13,7 +13,7 @@ model = prop.get('model')
 
 if model == 'X1':
     scx_branch = 'syncraftx1'
-elif model == 'X1':
+elif model == 'X2':
     scx_branch = 'syncraftx2'
 
 subprocess.run( ["sudo", "apt", "install", "-qqy", "udiskie"],   check=True)
