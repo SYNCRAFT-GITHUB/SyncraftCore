@@ -15,19 +15,11 @@ saveconfig_backup: str = """
 """
 
 def clear_folder(dir):
-    try:
-        for item in os.listdir(dir):
-            item_path = os.path.join(dir, item)
+    if os.path.exists(dir):
+        shutil.rmtree(dir)
+    os.mkdir(dir)
 
-            if os.path.isfile(item_path):
-                os.remove(item_path)
-            elif os.path.isdir(item_path):
-                shutil.rmtree(item_path)
-
-    except Exception as e:
-        print(f"{script_name} ERROR: {e}")
-
-def transfer_files(source_dir, destination_dir, block_list):
+def transfer_files_but_garbage(source_dir, destination_dir, block_list):
     for root, _, files in os.walk(source_dir):
         for file in files:
             src_file = os.path.join(root, file)
@@ -42,6 +34,21 @@ def transfer_files(source_dir, destination_dir, block_list):
                     os.chown(dst_file, 1000, 1000)
                 except:
                     pass
+
+
+def transfer_files(source_dir, destination_dir, block_list):
+    for item in os.listdir(source_dir):
+        source_item_path = os.path.join(source_dir, item)
+        
+        if item.upper() in [block_item.upper() for block_item in block_list]:
+            continue
+
+        destination_item_path = os.path.join(destination_dir, item)
+
+        if os.path.isfile(source_item_path):
+            shutil.copyfile(source_item_path, destination_item_path)
+        elif os.path.isdir(source_item_path):
+            shutil.copytree(source_item_path, destination_item_path)
 
 def save_config_lines(input_file_path, output_file_path):
     saving = False
@@ -104,16 +111,18 @@ def create_printer (pdc_dir):
 
 if __name__ == "__main__":
 
-    class DIR:
-        CORE = os.path.join('/home', 'pi', 'SyncraftCore')
-        PDC_FRESH = os.path.join('/home', 'pi', 'SyncraftCore', 'softwares', 'printerdataconfig')
-        PDC_STOCK = os.path.join('/home', 'pi', 'SyncraftCore', 'stock', 'printerdataconfig')
+    core = os.path.join('/home', 'pi', 'SyncraftCore')
+
+    class PATH:
+        CORE = os.path.join(core)
+        PDC_FRESH = os.path.join(core, 'store', 'fresh', 'printerdataconfig')
+        PDC_STOCK = os.path.join(core, 'store', 'stock', 'printerdataconfig')
         PDC_MACHINE = os.path.join('/home', 'pi', 'printer_data', 'config')
         CONFIG_FILE = os.path.join('/home', 'pi', 'printer_data', 'config', 'printer.cfg')
-        SAVECONFIG_FILE = os.path.join('/home', 'pi', 'SyncraftCore', 'cache', 'pdc', 'saveconfig.cfg')
-        CACHE = os.path.join('/home', 'pi', 'SyncraftCore', 'cache', 'pdc')
-        CACHE_CONFIG_FILE = os.path.join('/home', 'pi', 'SyncraftCore', 'cache', 'pdc', 'printer.cfg')
-        OVERWRITE_SCRIPT = os.path.join('/home', 'pi', 'SyncraftCore', 'scripts', 'pdc', 'overwrite', 'apply.sh')
+        SAVECONFIG_FILE = os.path.join(core, 'cache', 'pdc', 'saveconfig.cfg')
+        CACHE = os.path.join(core, 'cache', 'pdc')
+        CACHE_CONFIG_FILE = os.path.join(core, 'cache', 'pdc', 'printer.cfg')
+        OVERWRITE_SCRIPT = os.path.join(core, 'pdc', 'apply.sh')
 
     ############################################################################
     ###### INSERT IN THE ARRAY WHAT SHOULD BE BLOCKED DURING THE TRANSFER ######
@@ -131,14 +140,17 @@ if __name__ == "__main__":
 
     if not caveman:
 
-        clear_folder(DIR.CACHE)
-        save_config_lines(DIR.CONFIG_FILE, DIR.SAVECONFIG_FILE)
-        transfer_files(DIR.PDC_FRESH, DIR.CACHE, block_list=[])
-        create_printer(DIR.CACHE)
-        append_file_contents(DIR.SAVECONFIG_FILE, DIR.CACHE_CONFIG_FILE)
-        transfer_files(DIR.CACHE, DIR.PDC_MACHINE, block_list=block)
+        clear_folder(PATH.CACHE)
+        save_config_lines(PATH.CONFIG_FILE, PATH.SAVECONFIG_FILE)
+        transfer_files(PATH.PDC_FRESH, PATH.CACHE, block_list=[])
+        create_printer(PATH.CACHE)
+        append_file_contents(PATH.SAVECONFIG_FILE, PATH.CACHE_CONFIG_FILE)
 
+        os.system(f'sudo chown -R pi:1000 {PATH.PDC_MACHINE}')
+        clear_folder(PATH.PDC_MACHINE)
+
+        transfer_files(PATH.CACHE, PATH.PDC_MACHINE, block_list=block)
         
-        os.system(f'sudo bash {DIR.OVERWRITE_SCRIPT}')
+        os.system(f'sudo bash {PATH.OVERWRITE_SCRIPT}')
 
     print(f"{script_name} DONE.")

@@ -1,3 +1,6 @@
+# IDE
+.idea
+
 # MacOS Finder Files
 .DS_Store
 
@@ -8,14 +11,10 @@
 /cache
 .cache
 
-# Softwares Folder
-/softwares
-
-# Stock Folder
-/stock
-
-# properties file
-properties.yaml
+# Store Folder
+/store/stock
+/store/fresh
+/store/kiauh
 
 # Python cache
 __pycache__/
@@ -23,6 +22,3 @@ __pycache__/
 # Python PIP3 Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-
-# Kiauh Script
-/scripts/kiauh

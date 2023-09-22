@@ -1,19 +1,11 @@
-process='Install Udiskie'
-echo "[HELPER] START: $process."
-sudo apt-get install -qqy udiskie
-echo "[HELPER] DONE: $process."
+install_package() {
+    local name="$1"  # First argument
+    echo "[HELPER] START: $name."
+    sudo apt-get install -qqy $name
+echo "[HELPER] DONE: $name."
+}
 
-process='Install LightDM'
-echo "[HELPER] START: $process."
-sudo apt-get install -qqy lightdm
-echo "[HELPER] DONE: $process."
-
-process='Install VLC Player'
-echo "[HELPER] START: $process."
-sudo apt-get install -qqy vlc
-echo "[HELPER] DONE: $process."
-
-process='Install MPlayer'
-echo "[HELPER] START: $process."
-sudo apt-get install -qqy mplayer
-echo "[HELPER] DONE: $process."
+install_package "udiskie"
+install_package "lightdm"
+install_package "vlc"
+install_package "mplayer"

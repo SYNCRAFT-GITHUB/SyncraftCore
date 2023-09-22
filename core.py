@@ -24,10 +24,10 @@ class Color:
 
 class DIR:
     CORE = os.path.dirname(__file__)
-    KIAUH = os.path.join(os.path.dirname(__file__), 'scripts', 'kiauh')
-    SOFTWARES = os.path.join(os.path.dirname(__file__), 'softwares')
-    STOCK = os.path.join(os.path.dirname(__file__), 'stock')
-    PROP = os.path.join(os.path.dirname(__file__), 'properties.yaml')
+    KIAUH = os.path.join(os.path.dirname(__file__), 'store', 'kiauh')
+    SOFTWARES = os.path.join(os.path.dirname(__file__), 'store', 'fresh')
+    STOCK = os.path.join(os.path.dirname(__file__), 'store', 'stock')
+    PROP = os.path.join(os.path.dirname(__file__), 'core', 'info.yaml')
 
 if not os.path.exists(DIR.SOFTWARES):
     os.mkdir(DIR.SOFTWARES)
@@ -71,7 +71,6 @@ def performAction(i: int):
 
         option = input(Color.CYAN + "\nOption: " + Color.RESET)
         if (option.upper() == "CONFIRM"):
-            os.system('clear')
             operations[i-1].apply()
         else:
             os.system('clear')

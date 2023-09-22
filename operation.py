@@ -41,35 +41,16 @@ class Operation:
 
 operations = [
 
-    Operation('Set to Syncraft X1', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X1', 'type': 'stable'}),
-    Operation('Set to Syncraft X1 BETA', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X1', 'type': 'beta'}),
-    Operation('Set to Syncraft X1 DEV', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X1', 'type': 'dev'}),
-    Operation('Set to Syncraft X2', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X2', 'type': 'stable'}),
-    Operation('Set to Syncraft X2 BETA', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X2', 'type': 'beta'}),
-    Operation('Set to Syncraft X2 DEV', os.path.join(core, 'scripts', 'core', 'properties', 'model'), 'py', args={'model': 'X2', 'type': 'dev'}),
+    Operation('Switch to Kiauh', os.path.join(core, 'store', 'kiauh'), 'sh', script='kiauh'),
 
-    Operation('Switch to Kiauh', os.path.join(core, 'scripts', 'kiauh'), 'sh', script='kiauh'),
-
-    Operation('Update Softwares Folder', os.path.join(core, 'scripts', 'core', 'update'), 'py', sudo=True, web=True),
+    Operation('Update Softwares Folder', os.path.join(core, 'core', 'update'), 'py', sudo=True, web=True),
+    Operation('Upgrade Softwares', os.path.join(core, 'state', 'upgrade'), 'sh'),
+    Operation('Downgrade Softwares', os.path.join(core, 'state', 'downgrade'), 'sh'),
 
     Operation('Reset Machine Properties', os.path.join(core, 'machine'), 'sh'),
 
-    Operation('Export Logs to USB', os.path.join(core, 'scripts', 'pdc', 'logs', 'usb'), 'sh'),
-    Operation('Export Slicer Pack to USB', os.path.join(core, 'slicer'), 'py'),
+    Operation('Export Logs to USB', os.path.join(core, 'usb', 'logs'), 'sh'),
+    Operation('Export Slicer Pack to USB', os.path.join(core, 'usb', 'slicer'), 'sh'),
 
-    Operation('Update KlipperScreen', os.path.join(core, 'scripts', 'maintenance', 'update', 'klipperscreen'), 'sh'),
-    Operation('Update Mainsail', os.path.join(core, 'scripts', 'maintenance', 'update', 'mainsail'), 'sh'),
-    Operation('Update Printerdataconfig', os.path.join(core, 'scripts', 'pdc', 'update'), 'sh'),
-    Operation('Update Moonraker', os.path.join(core, 'scripts', 'maintenance', 'update', 'moonraker'), 'sh'),
-    Operation('Update Klipper LED Effects', os.path.join(core, 'scripts', 'maintenance', 'update', 'kle'), 'sh'),
-
-    Operation('Downgrade KlipperScreen', os.path.join(core, 'scripts', 'maintenance', 'revert', 'klipperscreen'), 'sh'),
-    Operation('Downgrade Mainsail', os.path.join(core, 'scripts', 'maintenance', 'revert', 'mainsail'), 'sh'),
-    Operation('Downgrade Printerdataconfig', os.path.join(core, 'scripts', 'pdc', 'revert'), 'py'),
-    Operation('Downgrade Moonraker', os.path.join(core, 'scripts', 'maintenance', 'revert', 'moonraker'), 'sh'),
-    Operation('Downgrade Klipper LED Effects', os.path.join(core, 'scripts', 'maintenance', 'revert', 'kle'), 'sh'),
-
-    Operation('Download All (replace stock)', os.path.join(core, 'scripts', 'core', 'download'), 'py', sudo=True, web=True, confirm=True),
-
-    Operation('Build', os.path.join(core, 'scripts', 'core', 'build'), 'py', sudo=True, web=True, confirm=True),
+    Operation('Build', os.path.join(core, 'core', 'create'), 'py', web=True, confirm=True),
 ]
