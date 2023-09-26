@@ -17,7 +17,7 @@ saveconfig_backup: str = """
 def clear_folder(dir):
     if os.path.exists(dir):
         shutil.rmtree(dir)
-    os.mkdir(dir)
+    os.makedirs(dir)
 
 def transfer_files_but_garbage(source_dir, destination_dir, block_list):
     for root, _, files in os.walk(source_dir):
@@ -102,7 +102,7 @@ def append_file_contents(input_file_path, output_file_path):
 def create_printer (pdc_dir):
     backups = os.path.join(pdc_dir, 'backups')
     if not os.path.exists(backups):
-        os.mkdir(backups)
+        os.makedirs(backups)
     for file in os.listdir(backups):
         if file in ['backup-KlipperScreen.conf', 'backup-printer.cfg', 'backup-variables.cfg']:
             file_to_copy = os.path.join(backups, file)

@@ -30,10 +30,10 @@ class DIR:
     PROP = os.path.join(os.path.dirname(__file__), 'core', 'info.yaml')
 
 if not os.path.exists(DIR.SOFTWARES):
-    os.mkdir(DIR.SOFTWARES)
+    os.makedirs(DIR.SOFTWARES)
 
 if not os.path.exists(DIR.STOCK):
-    os.mkdir(DIR.STOCK)
+    os.makedirs(DIR.STOCK)
 
 if os.path.exists(DIR.PROP):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'properties.yaml File OK' + Color.RESET))

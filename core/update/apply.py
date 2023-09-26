@@ -117,7 +117,7 @@ def clear_dir(dir: str):
     print(f'Cleaning {dir}')
     if os.path.exists(dir):
         shutil.rmtree(dir)
-    os.mkdir(dir)
+    os.makedirs(dir)
     pi_as_owner(dir)
 
 def pi_as_owner(dir: str):
@@ -162,7 +162,7 @@ if os.path.exists(PATH.STORE.STOCK.PATH):
     if not os.listdir(PATH.STORE.STOCK.PATH):
         distribute(to=PATH.STORE.STOCK.PATH)
 else:
-    os.mkdir(PATH.STORE.STOCK.PATH)
+    os.makedirs(PATH.STORE.STOCK.PATH)
     distribute(to=PATH.STORE.STOCK.PATH)
 
 pi_as_owner(PATH.CACHE.CORE.PATH)
