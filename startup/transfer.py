@@ -19,23 +19,6 @@ def clear_folder(dir):
         shutil.rmtree(dir)
     os.makedirs(dir)
 
-def transfer_files_but_garbage(source_dir, destination_dir, block_list):
-    for root, _, files in os.walk(source_dir):
-        for file in files:
-            src_file = os.path.join(root, file)
-            rel_path = os.path.relpath(src_file, source_dir)
-            dst_file = os.path.join(destination_dir, rel_path)
-            
-            if not any(block_name in rel_path.split(os.sep) for block_name in block_list):
-                os.makedirs(os.path.dirname(dst_file), exist_ok=True)
-                shutil.copy2(src_file, dst_file)
-                try:
-                    os.chmod(dst_file, 0o777)
-                    os.chown(dst_file, 1000, 1000)
-                except:
-                    pass
-
-
 def transfer_files(source_dir, destination_dir, block_list):
     for item in os.listdir(source_dir):
         source_item_path = os.path.join(source_dir, item)
@@ -84,7 +67,6 @@ def append_file_contents(input_file_path, output_file_path):
         for line in input_file:
             if saveconfig_line in line:
                 print (f"{script_name} SaveConfig LINE DETECTED IN \"{output_file_path}\".")
-                exit()
 
     try:
     

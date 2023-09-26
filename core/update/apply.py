@@ -97,7 +97,7 @@ def branch(model: str, software: str):
 
 def clone_in_path(repo_url, machine_dir, branch='master'):
     if os.path.exists(machine_dir):
-        os.remove(machine_dir)
+        shutil.rmtree(machine_dir)
     print(f'Downloading from {repo_url}')
     Repo.clone_from(repo_url, machine_dir, branch=branch)
 
@@ -154,6 +154,7 @@ clone_in_path("https://github.com/SYNCRAFT-GITHUB/printerdataconfig.git", PATH.C
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", PATH.CACHE.CORE.KLE)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", PATH.CACHE.CORE.KLIPPER)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/moonraker.git", PATH.CACHE.CORE.MOONRAKER)
+if os.path.exists()
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/kiauh", PATH.STORE.KIAUH)
 
 distribute(to=PATH.STORE.FRESH.PATH)
