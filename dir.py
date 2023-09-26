@@ -8,20 +8,20 @@ sh = 'apply.sh'
 
 class PATH:
     class STORE:
-        DIR = os.path.join(core, 'store')
+        PATH = os.path.join(core, 'store')
         STOCK = os.path.join(core, 'store', 'stock')
         FRESH = os.path.join(core, 'store', 'fresh')
         KIAUH = os.path.join(core, 'store', 'kiauh')
 
     class STARTUP:
-        DIR = os.path.join(core, 'startup')
+        PATH = os.path.join(core, 'startup')
 
     class MACHINE:
-        DIR = os.path.join(core, 'machine')
+        PATH = os.path.join(core, 'machine')
         APPLY = os.path.join(core, 'machine', sh)
 
     class USB:
-        DIR = os.path.join(core, 'usb')
+        PATH = os.path.join(core, 'usb')
 
         class LOGS:
             PATH = os.path.join(core, 'usb', 'logs')

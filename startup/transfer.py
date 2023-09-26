@@ -83,7 +83,7 @@ def append_file_contents(input_file_path, output_file_path):
     with open(output_file_path, 'r') as input_file:
         for line in input_file:
             if saveconfig_line in line:
-                print (f"{script_name} \"{saveconfig_line}\" DETECTED IN \"{output_file_path}\".")
+                print (f"{script_name} SaveConfig LINE DETECTED IN \"{output_file_path}\".")
                 exit()
 
     try:
