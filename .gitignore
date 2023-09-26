@@ -11,6 +11,9 @@
 /cache
 .cache
 
+# Info
+core/info.yaml
+
 # Store Folder
 /store/stock
 /store/fresh
