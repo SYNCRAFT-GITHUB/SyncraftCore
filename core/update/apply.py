@@ -151,7 +151,7 @@ os.system(f"cd {PATH.CACHE.CORE.MAINSAIL} && wget -q {repo_url} && {unzip_cmd}")
 
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreen.git", PATH.CACHE.CORE.KS, branch(model(), 'ks'))
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/printerdataconfig.git", PATH.CACHE.CORE.PDC, branch(model(), 'pdc'))
-clone_in_path("https://github.com/julianschill/klipper-led_effect", PATH.CACHE.CORE.KLE)
+clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", PATH.CACHE.CORE.KLE)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", PATH.CACHE.CORE.KLIPPER)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/moonraker.git", PATH.CACHE.CORE.MOONRAKER)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/kiauh", PATH.STORE.KIAUH)

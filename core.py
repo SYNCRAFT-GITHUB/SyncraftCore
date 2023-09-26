@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from operation import operations
 from operation import Operation
 import yaml
@@ -36,7 +38,7 @@ if not os.path.exists(DIR.STOCK):
     os.makedirs(DIR.STOCK)
 
 if os.path.exists(DIR.PROP):
-    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'properties.yaml File OK' + Color.RESET))
+    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info.yaml File OK' + Color.RESET))
 else:
     data_index = {
         "model": "X1",
@@ -44,7 +46,7 @@ else:
 
     with open(DIR.PROP, 'w') as yaml_file:
         yaml.dump(data_index, yaml_file)
-    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'properties.yaml File Created' + Color.RESET))
+    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info.yaml File Created' + Color.RESET))
     
 def internet():
     try:
