@@ -154,7 +154,6 @@ clone_in_path("https://github.com/SYNCRAFT-GITHUB/printerdataconfig.git", PATH.C
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", PATH.CACHE.CORE.KLE)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", PATH.CACHE.CORE.KLIPPER)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/moonraker.git", PATH.CACHE.CORE.MOONRAKER)
-if os.path.exists()
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/kiauh", PATH.STORE.KIAUH)
 
 distribute(to=PATH.STORE.FRESH.PATH)
