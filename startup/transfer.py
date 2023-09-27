@@ -1,7 +1,6 @@
 import os
 import shutil
 
-script_name: str = ('\033[34m' + '[TRANSFER SCRIPT]' + '\033[0m')
 saveconfig_line: str = '#*# <---------------------- SAVE_CONFIG ---------------------->'
 saveconfig_backup: str = """
 #*# <---------------------- SAVE_CONFIG ---------------------->
@@ -14,125 +13,71 @@ saveconfig_backup: str = """
 #*# position_endstop = 340.25
 """
 
-def clear_folder(dir):
-    if os.path.exists(dir):
-        shutil.rmtree(dir)
-    os.makedirs(dir)
+core = os.path.join('/home', 'pi', 'SyncraftCore')
+pdc = os.path.join ('/home', 'pi', 'printer_data', 'config')
 
-def transfer_files(source_dir, destination_dir, block_list):
-    for item in os.listdir(source_dir):
-        source_item_path = os.path.join(source_dir, item)
-        
-        if item.upper() in [block_item.upper() for block_item in block_list]:
-            continue
+class PATH:
+    CORE = core
+    PDC_FRESH = os.path.join(core, 'store', 'fresh', 'printerdataconfig')
+    PDC_MACHINE = pdc
+    PDC_CACHE = os.path.join(core, 'cache', 'pdc')
+    class FILE:
+        class PDC_BACKUP:
+            KS = os.path.join(pdc, 'backups', 'backup-KlipperScreen.conf')
+            VARIABLES = os.path.join(pdc, 'backups', 'backup-variables.cfg')
+            PRINTER = os.path.join(pdc, 'backups', 'backup-printer.cfg')
+        class CACHE:
+            KS = os.path.join(core, 'cache', 'pdc', 'KlipperScreen.conf')
+            VARIABLES = os.path.join(core, 'cache', 'pdc', 'variables.cfg')
+            PRINTER = os.path.join (core, 'cache', 'pdc', 'printer.cfg')
+        class MACHINE:
+            KS = os.path.join(pdc, 'KlipperScreen.conf')
+            VARIABLES = os.path.join(pdc, 'variables.cfg')
+            PRINTER = os.path.join (pdc, 'printer.cfg')
 
-        destination_item_path = os.path.join(destination_dir, item)
+class BOOL:
+    SAVE_LINES = False
+    MACHINE_HAS_LINE = False
 
-        if os.path.isfile(source_item_path):
-            shutil.copyfile(source_item_path, destination_item_path)
-        elif os.path.isdir(source_item_path):
-            shutil.copytree(source_item_path, destination_item_path)
+extracted_saveconfig = []
 
-def save_config_lines(input_file_path, output_file_path):
-    saving = False
-    config_lines = []
-    times_found = 0
+# TRY TO FIND THE SAVECONFIG LINE IN PRINTER.CFG
+with open(PATH.FILE.MACHINE.PRINTER, 'r') as printer_cfg:
 
-    try:
-        with open(input_file_path, 'r') as input_file:
-            for line in input_file:
-                if times_found <= 1:
-                    if saveconfig_line in line:
-                        saving = True
-                        times_found += 1
-                        if times_found <= 1:
-                            config_lines.append('\n')
-                            config_lines.append(line)
-                    elif saving:
-                        config_lines.append(line)
+    for i, line in enumerate(printer_cfg):
+        if saveconfig_line in line:
+            BOOL.SAVE_LINES = True
+        if BOOL.SAVE_LINES:
+            extracted_saveconfig.append(line)
 
-        if config_lines:
-            output_dir = os.path.dirname(output_file_path)
-            if not os.path.exists(output_dir):
-                os.makedirs(output_dir)
-            with open(output_file_path, 'w') as output_file:
-                output_file.writelines(config_lines)
-    except:
-        with open(output_file_path, 'w') as output_file:
-                output_file.writelines(saveconfig_backup)
+# CREATE A FILE IN CACHE AND WRITE IT'S LINES BASED ON THE EXTRACTED SAVECONFIG LINE
+with open(PATH.FILE.CACHE.PRINTER, 'w') as extracted:
 
-def append_file_contents(input_file_path, output_file_path):
+    extracted.writelines(extracted_saveconfig)
 
-    with open(output_file_path, 'r') as input_file:
-        for line in input_file:
-            if saveconfig_line in line:
-                print (f"{script_name} SaveConfig LINE DETECTED IN \"{output_file_path}\".")
+# COPY BOTH KLIPPERSCREEN.CONF AND VARIABLES.CFG TO PDC CACHE
+shutil.copyfile(PATH.FILE.MACHINE.KS, PATH.FILE.CACHE.KS)
+shutil.copyfile(PATH.FILE.MACHINE.VARIABLES, PATH.FILE.CACHE.VARIABLES)
 
-    try:
-    
-        with open(input_file_path, 'r') as input_file:
-            content_to_append = input_file.read()
+# DELETE ALL CONTENT ON PRINTER_DATA/CONFIG
+shutil.rmtree(PATH.PDC_MACHINE)
 
-        with open(output_file_path, 'a') as output_file:
-            output_file.write(content_to_append)
+# TRANSFER ALL CONTENT FROM PDC_FRESH TO MACHINE
+shutil.copytree(PATH.PDC_FRESH, PATH.PDC_MACHINE)
 
-    except:
+# COPY BOTH KLIPPERSCREEN.CONF AND VARIABLES.CFG TO PDC MACHINE
+shutil.copyfile(PATH.FILE.CACHE.KS, PATH.FILE.MACHINE.KS)
+shutil.copyfile(PATH.FILE.CACHE.VARIABLES, PATH.FILE.MACHINE.VARIABLES)
 
-        with open(output_file_path, 'a') as output_file:
-            output_file.write(saveconfig_backup)
+# TRANSFORM 'BACKUP' PRINTER.CFG FILE INTO USEFUL FILE
+shutil.copyfile(PATH.FILE.PDC_BACKUP.PRINTER, PATH.FILE.MACHINE.PRINTER)
 
-def create_printer (pdc_dir):
-    backups = os.path.join(pdc_dir, 'backups')
-    if not os.path.exists(backups):
-        os.makedirs(backups)
-    for file in os.listdir(backups):
-        if file in ['backup-KlipperScreen.conf', 'backup-printer.cfg', 'backup-variables.cfg']:
-            file_to_copy = os.path.join(backups, file)
-            file_to_paste = os.path.join(pdc_dir, file.replace('backup-', '', 1))
-            shutil.copyfile(file_to_copy, file_to_paste)
+# APPEND CONTENT TO THAT PRINTER.CFG FILE
+with open(PATH.FILE.MACHINE.PRINTER, 'a') as printer_cfg:
+    with open(PATH.FILE.CACHE.PRINTER, 'r') as extracted:
+        printer_cfg.write('\n')
+        for line in extracted:
+            printer_cfg.write(line)
 
-if __name__ == "__main__":
-
-    core = os.path.join('/home', 'pi', 'SyncraftCore')
-
-    class PATH:
-        CORE = os.path.join(core)
-        PDC_FRESH = os.path.join(core, 'store', 'fresh', 'printerdataconfig')
-        PDC_STOCK = os.path.join(core, 'store', 'stock', 'printerdataconfig')
-        PDC_MACHINE = os.path.join('/home', 'pi', 'printer_data', 'config')
-        CONFIG_FILE = os.path.join('/home', 'pi', 'printer_data', 'config', 'printer.cfg')
-        SAVECONFIG_FILE = os.path.join(core, 'cache', 'pdc', 'saveconfig.cfg')
-        CACHE = os.path.join(core, 'cache', 'pdc')
-        CACHE_CONFIG_FILE = os.path.join(core, 'cache', 'pdc', 'printer.cfg')
-        OVERWRITE_SCRIPT = os.path.join(core, 'pdc', 'apply.sh')
-
-    ############################################################################
-    ###### INSERT IN THE ARRAY WHAT SHOULD BE BLOCKED DURING THE TRANSFER ######
-    ############################################################################
-    ###### * Files must have the extension                                ######
-    ###### * Folders can be referenced                                    ######
-    ###### * Subfolders cannot be referenced                              ######
-    ############################################################################
-
-    # If you want to become a caveman and skip updates, change this variable to True
-    caveman = False
-
-    # Array that blocks specific names
-    block = ["KlipperScreen.conf", "variables.cfg"]
-
-    if not caveman:
-
-        clear_folder(PATH.CACHE)
-        save_config_lines(PATH.CONFIG_FILE, PATH.SAVECONFIG_FILE)
-        transfer_files(PATH.PDC_FRESH, PATH.CACHE, block_list=[])
-        create_printer(PATH.CACHE)
-        append_file_contents(PATH.SAVECONFIG_FILE, PATH.CACHE_CONFIG_FILE)
-
-        os.system(f'sudo chown -R pi:1000 {PATH.PDC_MACHINE}')
-        clear_folder(PATH.PDC_MACHINE)
-
-        transfer_files(PATH.CACHE, PATH.PDC_MACHINE, block_list=block)
-        
-        os.system(f'sudo bash {PATH.OVERWRITE_SCRIPT}')
-
-    print(f"{script_name} DONE.")
+# MAKE SURE THAT USER 'pi' OWNS THE MACHINE PATH
+os.chown(PATH.PDC_MACHINE, 1000, 1000)
