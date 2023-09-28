@@ -45,6 +45,18 @@ class BOOL:
 
 extracted_saveconfig = []
 
+# DELETE ALL CONTENT ON PDC CACHE
+if os.path.exists(PATH.PDC_CACHE):
+    print(f'{name} ✓ Deleting all content in PDC Cache.')
+    shutil.rmtree(PATH.PDC_CACHE)
+else:
+    print(f"{name} ☓ PDC Cache not found. Creating it.")
+    try:
+        os.makedirs(PATH.PDC_CACHE)
+    except:
+        print(f"{name} ☓ Error trying to create PDC Cache Path, maybe a permission error?")
+        exit()
+
 # TRY TO FIND THE SAVECONFIG LINE IN PRINTER.CFG
 if os.path.exists(PATH.FILE.MACHINE.PRINTER):
     with open(PATH.FILE.MACHINE.PRINTER, 'r') as printer_cfg:
