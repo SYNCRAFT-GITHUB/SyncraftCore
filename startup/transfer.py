@@ -52,7 +52,7 @@ class BOOL:
 extracted_saveconfig = []
 
 def securePermission ():
-    dirs = [PATH.CORE, PATH.PDC_MACHINE, PATH.MAINSAIL, PATH.KLIPPER]
+    dirs = [PATH.CORE, PATH.PDC_MACHINE, PATH.MAINSAIL]
     for path in dirs:
         try:
             for dirpath, dirnames, filenames in os.walk(path):
