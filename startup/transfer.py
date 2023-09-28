@@ -1,5 +1,6 @@
 import os
 import shutil
+import subprocess
 
 name = '[TRANSFER SCRIPT]'
 saveconfig_line: str = '#*# <---------------------- SAVE_CONFIG ---------------------->'
@@ -25,6 +26,8 @@ class PATH:
     MOONRAKER = os.path.join('/home', 'pi', 'moonraker')
     KLIPPER = os.path.join('/home', 'pi', 'klipper')
     MAINSAIL = os.path.join('/home', 'pi', 'mainsail')
+    class SCRIPT:
+        OVERWRITE = os.path.join(core, 'pdc', 'apply.sh')
     class FILE:
         class PDC_FRESH_BACKUP:
             KS = os.path.join(core, 'store', 'fresh', 'printerdataconfig', 'backups', 'backup-KlipperScreen.conf')
@@ -196,5 +199,8 @@ try:
 except Exception as e:
     print(print(f'{name} ☓ Error while trying to append SaveConfig content into PDC Machine Printer File'))
     print(f"{name} {e}")
+
+# OVERWRITE FILES ON MACHINE PDC
+subprocess.run(['sudo', 'bash', PATH.SCRIPT.OVERWRITE], check=True)
 
 securePermission()
