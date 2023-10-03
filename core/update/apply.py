@@ -9,6 +9,15 @@ core = os.path.join(pi, 'SyncraftCore')
 py = 'apply.py'
 sh = 'apply.sh'
 
+print ('\n➤ Transfer downloaded softwares to the stock folder? [ y/n(default) ]')
+fill_stock = input("➤ ")
+
+if 'y' in fill_stock.lower():
+    print('➤ YES\n')
+    fill_stock = True
+else:
+    print('➤ SKIP\n')
+    fill_stock = False
 
 class PATH:
     class STORE:
@@ -159,7 +168,7 @@ clone_in_path("https://github.com/SYNCRAFT-GITHUB/kiauh", PATH.STORE.KIAUH)
 distribute(to=PATH.STORE.FRESH.PATH)
 
 if os.path.exists(PATH.STORE.STOCK.PATH):
-    if not os.listdir(PATH.STORE.STOCK.PATH):
+    if fill_stock:
         distribute(to=PATH.STORE.STOCK.PATH)
 else:
     os.makedirs(PATH.STORE.STOCK.PATH)
