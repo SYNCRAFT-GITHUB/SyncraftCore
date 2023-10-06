@@ -9,6 +9,12 @@ YELLOW="\033[0;33m"
 BLUE="\033[0;34m"
 RESET="\033[0m"
 
+export DISPLAY=:0.0
+if [ -f "/home/pi/SyncraftCore/intro/intro.py" ]; then
+    cd "/home/pi/SyncraftCore/intro"
+    sudo python3 intro.py
+fi
+
 if [ -d "$custom_startup_dir" ]; then
 echo -e "${BLUE}[SyncraftCore Startup] ${YELLOW} Custom Startup Folder Detected.${RESET}"
 
@@ -27,7 +33,7 @@ elif [ -d "$startup_dir" ]; then
 
     for file in *.py; do
         if [ -f "$file" ]; then
-            echo -e "${BLUE}[SyncraftCore Startup] ${YELLOW} EXECUTING: \"$file\""
+            echo -e "${BLUE}[SyncraftCore Startup] ${YELLOW} EXECUTING: \"$file\"${RESET}"
             python3 "$file"
         fi
     done
