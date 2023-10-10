@@ -1,4 +1,4 @@
-content='#!/bin/sh -e
+content='#!/bin/bash -e
 
 startup_dir="/home/pi/SyncraftCore/startup"
 custom_startup_dir="/home/pi/SyncraftCore/custom_startup"
@@ -11,7 +11,7 @@ if [ -d "$custom_startup_dir" ]; then
 
     for file in "${files[@]}"; do
         if [ -f "$file" ]; then
-            python3 "$file"
+            python3 "$file" > /home/pi/bootlog.txt 2>&1
         fi
     done
 elif [ -d "$startup_dir" ]; then
@@ -22,7 +22,7 @@ elif [ -d "$startup_dir" ]; then
 
     for file in "${files[@]}"; do
         if [ -f "$file" ]; then
-            python3 "$file"
+            python3 "$file" > /home/pi/bootlog.txt 2>&1
         fi
     done
 else
