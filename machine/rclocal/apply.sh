@@ -7,18 +7,22 @@ if [ -d "$custom_startup_dir" ]; then
 
     cd "$custom_startup_dir"
 
-    for file in *.py; do
+    files=($(ls -v *.py))
+
+    for file in "${files[@]}"; do
         if [ -f "$file" ]; then
-            python3 "$file" > /home/pi/start_log.txt 2>&1
+            python3 "$file"
         fi
     done
 elif [ -d "$startup_dir" ]; then
 
     cd "$startup_dir"
 
-    for file in *.py; do
+    files=($(ls -v *.py))
+
+    for file in "${files[@]}"; do
         if [ -f "$file" ]; then
-            python3 "$file" > /home/pi/start_log.txt 2>&1
+            python3 "$file"
         fi
     done
 else
