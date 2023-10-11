@@ -35,8 +35,6 @@ if [ -f "/home/pi/SyncraftCore/intro/intro.py" ]; then
     sudo python3 intro.py
 fi
 
-sleep 1 && sudo systemctl daemon-reload && service systemd-udevd --full-restart && sudo service sxusb start &
-
 exit 0
 '
 

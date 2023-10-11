@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 
+import os
+
+try:
+    if not os.path.exists(DIR.PROP):
+        os.system('sudo apt-get install python3-pip')
+        os.system(f'pip3 install -r {DIR.REQ}')
+except:
+    pass
+
 from operation import operations
 from operation import Operation
 import yaml
-import os
 import random
 import shutil
 import subprocess
@@ -30,6 +38,7 @@ class DIR:
     SOFTWARES = os.path.join(os.path.dirname(__file__), 'store', 'fresh')
     STOCK = os.path.join(os.path.dirname(__file__), 'store', 'stock')
     PROP = os.path.join(os.path.dirname(__file__), 'core', 'info.yaml')
+    REQ = os.path.join(os.path.dirname(__file__), 'core', 'core-requirements.txt')
 
 if not os.path.exists(DIR.SOFTWARES):
     os.makedirs(DIR.SOFTWARES)
