@@ -49,6 +49,8 @@ operations = [
 
     Operation('Reset Machine Properties', os.path.join(core, 'machine'), 'sh'),
 
+    Operation('Install Python Req.', os.path.join(core, 'machine', 'python-req'), 'sh'),
+
     Operation('Export Logs to USB', os.path.join(core, 'usb', 'logs'), 'sh'),
     Operation('Export Slicer Pack to USB', os.path.join(core, 'usb', 'slicer'), 'sh'),
 
