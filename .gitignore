@@ -19,6 +19,9 @@ core/info.yaml
 /store/fresh
 /store/kiauh
 
+# KlipperScreen materials
+/materials/custom.json
+
 # Python cache
 __pycache__/
 
