@@ -83,6 +83,9 @@ def model():
 
 
 def branch(model: str, software: str):
+
+    return "syncraftx2"
+
     if '2' in model:
         n = '2'
     else:
