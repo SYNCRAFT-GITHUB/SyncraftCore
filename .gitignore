@@ -6,6 +6,7 @@
 
 # Python Virtual Env
 SyncraftCore-env
+env
 
 # Custom Startup
 /custom_startup
