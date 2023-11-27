@@ -38,13 +38,16 @@ class DIR:
     SOFTWARES = os.path.join(os.path.dirname(__file__), 'store', 'fresh')
     STOCK = os.path.join(os.path.dirname(__file__), 'store', 'stock')
     PROP = os.path.join(os.path.dirname(__file__), 'core', 'info.yaml')
-    REQ = os.path.join(os.path.dirname(__file__), 'core', 'core-requirements.txt')
+    REQ = os.path.join(os.path.dirname(__file__), 'core', 'requirements.txt')
+    PACKAGES = os.path.join(os.path.dirname(__file__), 'machine', 'packages', 'apply.sh')
 
 if not os.path.exists(DIR.SOFTWARES):
     os.makedirs(DIR.SOFTWARES)
 
 if not os.path.exists(DIR.STOCK):
     os.makedirs(DIR.STOCK)
+
+os.system(f'sudo bash {DIR.PACKAGES}')
 
 if os.path.exists(DIR.PROP):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info.yaml File OK' + Color.RESET))
