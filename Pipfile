@@ -4,15 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-jinja2 = "*"
-netifaces = "*"
-requests = "*"
-websocket-client = "*"
-get-mac = "*"
-gitdb = "*"
-gitpython = "*"
-smmap = "*"
-pyyaml = "*"
 
 [dev-packages]
 
