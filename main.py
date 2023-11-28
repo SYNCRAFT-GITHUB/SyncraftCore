@@ -47,10 +47,10 @@ if not os.path.exists(DIR.SOFTWARES):
 if not os.path.exists(DIR.STOCK):
     os.makedirs(DIR.STOCK)
 
-print ('\n➤ Check if there\'s missing packages in your system? (recommended):')
+print ('\n➤ Check if there\'s missing packages in your system? (recommended) [y/n]:')
 check_packages = input("➤ ")
 
-if check_packages:
+if check_packages.lower()[0] == 'y':
     os.system(f'sudo bash {DIR.PACKAGES}')
 
 if os.path.exists(DIR.PROP):
