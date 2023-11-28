@@ -47,7 +47,11 @@ if not os.path.exists(DIR.SOFTWARES):
 if not os.path.exists(DIR.STOCK):
     os.makedirs(DIR.STOCK)
 
-os.system(f'sudo bash {DIR.PACKAGES}')
+print ('\n➤ Check if there\'s missing packages in your system? (recommended):')
+check_packages = input("➤ ")
+
+if check_packages:
+    os.system(f'sudo bash {DIR.PACKAGES}')
 
 if os.path.exists(DIR.PROP):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info.yaml File OK' + Color.RESET))
