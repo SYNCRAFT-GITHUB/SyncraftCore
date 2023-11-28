@@ -196,7 +196,6 @@ try:
                 print(print(f'{name} ✓ PDC Machine Backup Printer file now has updated Canbus UUID.'))
 except Exception as e:
     print(print(f'{name} ☓ Error trying to update Canbus UUID in printer cfg file.'))
-    print(f'error: {e}')
 
 # TRANSFORM 'BACKUP' PRINTER.CFG FILE INTO USEFUL FILE
 try:
