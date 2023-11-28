@@ -54,5 +54,7 @@ operations = [
     Operation('Export Logs to USB', os.path.join(core, 'usb', 'logs'), 'sh'),
     Operation('Export Slicer Pack to USB', os.path.join(core, 'usb', 'slicer'), 'sh'),
 
+    Operation('Set Canbus UUID', os.path.join(core, 'core', 'set', 'canbus_uuid'), 'py'),
+
     Operation('Build', os.path.join(core, 'core', 'create'), 'py', web=True, confirm=True),
 ]

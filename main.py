@@ -53,7 +53,7 @@ if os.path.exists(DIR.PROP):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info.yaml File OK' + Color.RESET))
 else:
     data_index = {
-        "model": "X1",
+        "model": "X2",
     }
 
     with open(DIR.PROP, 'w') as yaml_file:
@@ -125,20 +125,26 @@ while (True):
     """ + Color.RESET
 
     logo_error: str = Color.RED +  """
-  ____                              __ _      ____               
- /___|   _ __   ___ _ __ __ _ /_| |_   /___\t|___  _ __ ___ 
- \___ \t\  | |\t ' \ /\t_| \t'__/ _` | |_| __| |    /_ \t '__/ _ |
-  _) \t| ||  | || |(_|  (_| | _| \t|_ | |_\t_| _) || |  __/
- |___/ \__,_|\t |_\__\t|  \__,_|_|  \__|  \____\__\t_/||  \___|
-        |__/                                                                                                           
+                      ______
+                   .-"      "-.
+                  /            \\\tDO WE
+                 |              |\tHAVE A
+                 |,  .-.  .-.  ,|\tPROBLEM ?
+                 | )(_o/  \o_)( |
+                 |/     /\     \|
+       (@_       (_     ^^     _)
+  _     ) \_______\__|IIIIII|__/__________________________
+ (_)@8@8{}<________|-\IIIIII/-|___________________________>
+        )_/        \          /
+       (@           `--------`                                                                                                    
     """ + Color.RESET
 
     print(logo) if len(alerts) == 0 else print(logo_error)
 
-    print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Model: ' + Color.BLUE + PROP.MODEL + Color.RESET)
+    print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Model: ' + Color.BLUE + f'{PROP.MODEL}' + Color.RESET)
 
     if len(alerts) != 0:
-        print(Color.MAGENTA + '\n[!] ' + Color.RED + 'SyncraftCore IS NOT READY!\n' + Color.RESET)
+        print(Color.MAGENTA + '\n[!] ' + Color.RED + 'SyncraftCore IS INCOMPLETE!\n' + Color.RESET)
         for alert in alerts:
             print(alert)
     else:

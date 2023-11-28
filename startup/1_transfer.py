@@ -1,6 +1,8 @@
-import os
-import shutil
+import configparser
 import subprocess
+import shutil
+import yaml
+import os
 
 name = '[TRANSFER SCRIPT]'
 saveconfig_line: str = '#*# <---------------------- SAVE_CONFIG ---------------------->'
@@ -45,6 +47,8 @@ class PATH:
             KS = os.path.join(pdc, 'KlipperScreen.conf')
             VARIABLES = os.path.join(pdc, 'variables.cfg')
             PRINTER = os.path.join (pdc, 'printer.cfg')
+        class CORE:
+            PROP = os.path.join(core, 'core', 'info.yaml')
 
 class BOOL:
     SAVE_LINES = False
@@ -178,6 +182,20 @@ except Exception as e:
     print(f"{name} ☓ Error trying to copy files from Cache to PDC Machine.")
     print(f"{name} {e}")
     exit()
+
+# INSERT CANBUS UUID INTO PRINTER.CFG
+try:
+    config = configparser.ConfigParser()
+    config.read(PATH.FILE.PDC_BACKUP.PRINTER)
+    if config.has_section('mcu') and config.has_option('mcu', 'canbus_uuid'):
+        with open(PATH.FILE.CORE.PROP, 'r') as prop_file:
+            data = yaml.safe_load(prop_file)
+            config.set('mcu', 'canbus_uuid', data['canbus_uuid'])
+            with open (PATH.FILE.PDC_BACKUP.PRINTER, 'w') as printercfg_file:
+                config.write(printercfg_file)
+                print(print(f'{name} ✓ PDC Machine Backup Printer file now has updated Canbus UUID.'))
+except:
+    print(print(f'{name} ☓ Error trying to update Canbus UUID in printer cfg file.'))
 
 # TRANSFORM 'BACKUP' PRINTER.CFG FILE INTO USEFUL FILE
 try:
