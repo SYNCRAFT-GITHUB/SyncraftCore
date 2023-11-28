@@ -194,7 +194,7 @@ try:
             with open (PATH.FILE.PDC_BACKUP.PRINTER, 'w') as printercfg_file:
                 config.write(printercfg_file)
                 print(print(f'{name} ✓ PDC Machine Backup Printer file now has updated Canbus UUID.'))
-except e:
+except Exception as e:
     print(print(f'{name} ☓ Error trying to update Canbus UUID in printer cfg file.'))
     print(f'error: {e}')
 
