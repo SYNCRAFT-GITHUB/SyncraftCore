@@ -6,7 +6,6 @@ echo "[HELPER] DONE: $name."
 }
 
 install_package "udiskie"
-install_package "lightdm"
 install_package "vlc"
 install_package "mplayer"
 install_package "python3-venv"

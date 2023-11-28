@@ -1,8 +1,7 @@
 import os
 import yaml
 
-CORE = os.path.join(os.path.dirname(__file__), '..', '..')
-PROP = os.path.join('/Users/rafael/Desktop/wb/git/SyncraftCore', 'core', 'info.yaml')
+PROP = os.path.join('/home', 'pi', 'SyncraftCore', 'core', 'info.yaml')
 
 print ('\n➤ Insert Canbus UUID:')
 canbus_uuid = input("➤ ")
