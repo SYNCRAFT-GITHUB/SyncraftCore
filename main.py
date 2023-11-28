@@ -40,6 +40,7 @@ class DIR:
     PROP = os.path.join(os.path.dirname(__file__), 'core', 'info.yaml')
     REQ = os.path.join(os.path.dirname(__file__), 'core', 'requirements.txt')
     PACKAGES = os.path.join(os.path.dirname(__file__), 'machine', 'packages', 'apply.sh')
+    ENV = os.path.join(os.path.dirname(__file__), 'env')
 
 if not os.path.exists(DIR.SOFTWARES):
     os.makedirs(DIR.SOFTWARES)
@@ -52,6 +53,12 @@ check_packages = input("➤ ")
 
 if check_packages.lower()[0] == 'y':
     os.system(f'sudo bash {DIR.PACKAGES}')
+
+if not os.path.exists(DIR.ENV):
+    os.system(f'python -m venv {DIR.ENV}')
+
+if os.path.exists(DIR.ENV):
+    os.system(f"source {os.path.join(DIR.ENV, 'bin', 'activate')}")
 
 if os.path.exists(DIR.PROP):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info.yaml File OK' + Color.RESET))
