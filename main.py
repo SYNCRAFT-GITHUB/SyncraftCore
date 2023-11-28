@@ -55,6 +55,7 @@ if check_packages.lower()[0] == 'y':
     os.system(f'sudo bash {DIR.PACKAGES}')
 
 if not os.path.exists(DIR.ENV):
+    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'Creating env...' + Color.RESET))
     os.system(f'python -m venv {DIR.ENV}')
 
 if os.path.exists(DIR.ENV):
