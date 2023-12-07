@@ -18,6 +18,18 @@
         "temp": 260
     },
     {
+        "name": "Breakaway",
+        "code": "Breakaway",
+        "compatible": [
+            "Standard 0.25mm",
+            "Standard 0.4mm"
+        ],
+        "experimental": [
+            "Standard 0.8mm"
+        ],
+        "temp": 220
+    },
+    {
         "name": "ABS",
         "code": "ABS",
         "compatible": [
