@@ -27,7 +27,7 @@ class PATH:
         class STOCK:
             PATH = os.path.join(core, 'store', 'stock')
             KS = os.path.join(core, 'store', 'stock', 'KlipperScreenIDEX')
-            PDC = os.path.join(core, 'store', 'stock', 'printerdataconfig')
+            PDC = os.path.join(core, 'store', 'stock', 'IDEXConfig')
             KLE = os.path.join(core, 'store', 'stock', 'klipper-led_effect')
             KLIPPER = os.path.join(core, 'store', 'stock', 'klipper')
             MOONRAKER = os.path.join(core, 'store', 'stock', 'moonraker')
@@ -36,7 +36,7 @@ class PATH:
         class FRESH:
             PATH = os.path.join(core, 'store', 'fresh')
             KS = os.path.join(core, 'store', 'fresh', 'KlipperScreenIDEX')
-            PDC = os.path.join(core, 'store', 'fresh', 'printerdataconfig')
+            PDC = os.path.join(core, 'store', 'fresh', 'IDEXConfig')
             KLE = os.path.join(core, 'store', 'fresh', 'klipper-led_effect')
             KLIPPER = os.path.join(core, 'store', 'fresh', 'klipper')
             MOONRAKER = os.path.join(core, 'store', 'fresh', 'moonraker')
@@ -47,7 +47,7 @@ class PATH:
 
         class CORE:
             PATH = os.path.join(core, 'cache', 'core')
-            PDC = os.path.join(core, 'cache', 'core', 'printerdataconfig')
+            PDC = os.path.join(core, 'cache', 'core', 'IDEXConfig')
             KS = os.path.join(core, 'cache', 'core', 'KlipperScreenIDEX')
             KLE = os.path.join(core, 'cache', 'core', 'klipper-led_effect')
             KLIPPER = os.path.join(core, 'cache', 'core', 'klipper')
