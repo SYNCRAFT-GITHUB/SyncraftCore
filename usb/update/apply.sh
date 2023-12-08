@@ -6,9 +6,9 @@ cd /home/pi
 
 name="[USB UPDATE SCRIPT]"
 
-process="$name Update Syncraft X1 KlipperScreen"
-softwares_dir=/home/pi/printer_data/gcodes/USB/*/SYNCRAFT/content/KlipperScreen
-fresh_dir=/home/pi/SyncraftCore/state/fresh/KlipperScreen
+process="$name Update Syncraft KlipperScreen"
+softwares_dir=/home/pi/printer_data/gcodes/USB/*/SYNCRAFT/content/KlipperScreenIDEX
+fresh_dir=/home/pi/SyncraftCore/state/fresh/KlipperScreenIDEX
 
 echo "[HELPER] START: $process."
 if [ -d "$fresh_dir" ]; then
@@ -64,14 +64,14 @@ sudo chown -R pi:1000 $fresh_dir
 echo "[HELPER] DONE: $process."
 
 
-#####################
-# PRINTERDATACONFIG #
-#####################
+##############
+# IDEXConfig #
+##############
 
 cd /home/pi
 
-process="$name Update PDC"
-fresh_dir=/home/pi/SyncraftCore/state/fresh/printerdataconfig
+process="$name Update IDEXConfig"
+fresh_dir=/home/pi/SyncraftCore/state/fresh/IDEXConfig
 softwares_dir=/home/pi/printer_data/gcodes/USB/*/SYNCRAFT/content/config
 
 echo "[HELPER] START: $process."

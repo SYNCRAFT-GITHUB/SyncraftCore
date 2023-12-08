@@ -1,7 +1,7 @@
 cd /home/pi
 
-process="Downgrade Syncraft X1 KlipperScreen"
-stock_ks_dir=/home/pi/SyncraftCore/store/stock/KlipperScreen
+process="Downgrade Syncraft KlipperScreen"
+stock_ks_dir=/home/pi/SyncraftCore/store/stock/KlipperScreenIDEX
 machine_ks_dir=/home/pi/KlipperScreen
 
 echo "[HELPER] START: $process."

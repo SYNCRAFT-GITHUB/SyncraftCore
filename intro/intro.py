@@ -22,6 +22,8 @@ try:
             os.system(f'sudo -u pi cvlc -f --no-video-title-show {PATH.VIDEO.COLORFUL}')
         if 'neon' in content and os.path.exists(PATH.VIDEO.COLORFUL):
             os.system(f'sudo -u pi cvlc -f --no-video-title-show {PATH.VIDEO.COLORFUL}')
+        if 'evening' in content and os.path.exists(PATH.VIDEO.COLORFUL):
+            os.system(f'sudo -u pi cvlc -f --no-video-title-show {PATH.VIDEO.COLORFUL}')
         elif os.path.exists(PATH.VIDEO.DEFAULT):
             os.system(f'sudo -u pi cvlc -f --no-video-title-show {PATH.VIDEO.DEFAULT}')
         else:

@@ -22,7 +22,7 @@ pdc = os.path.join ('/home', 'pi', 'printer_data', 'config')
 
 class PATH:
     CORE = core
-    PDC_FRESH = os.path.join(core, 'store', 'fresh', 'printerdataconfig')
+    PDC_FRESH = os.path.join(core, 'store', 'fresh', 'IDEXConfig')
     PDC_MACHINE = pdc
     PDC_CACHE = os.path.join(core, 'cache', 'pdc')
     MOONRAKER = os.path.join('/home', 'pi', 'moonraker')
@@ -32,13 +32,13 @@ class PATH:
         OVERWRITE = os.path.join(core, 'pdc', 'apply.sh')
     class FILE:
         class PDC_FRESH_BACKUP:
-            KS = os.path.join(core, 'store', 'fresh', 'printerdataconfig', 'backups', 'backup-KlipperScreen.conf')
-            VARIABLES = os.path.join(core, 'store', 'fresh', 'printerdataconfig', 'backups', 'backup-variables.cfg')
-            PRINTER = os.path.join(core, 'store', 'fresh', 'printerdataconfig', 'backups', 'backup-printer.cfg')
+            KS = os.path.join(core, 'store', 'fresh', 'IDEXConfig', 'backups', 'KlipperScreen.conf')
+            VARIABLES = os.path.join(core, 'store', 'fresh', 'IDEXConfig', 'backups', 'variables.cfg')
+            PRINTER = os.path.join(core, 'store', 'fresh', 'IDEXConfig', 'backups', 'printer.cfg')
         class PDC_BACKUP:
-            KS = os.path.join(pdc, 'backups', 'backup-KlipperScreen.conf')
-            VARIABLES = os.path.join(pdc, 'backups', 'backup-variables.cfg')
-            PRINTER = os.path.join(pdc, 'backups', 'backup-printer.cfg')
+            KS = os.path.join(pdc, 'backups', 'KlipperScreen.conf')
+            VARIABLES = os.path.join(pdc, 'backups', 'variables.cfg')
+            PRINTER = os.path.join(pdc, 'backups', 'printer.cfg')
         class CACHE:
             KS = os.path.join(core, 'cache', 'pdc', 'KlipperScreen.conf')
             VARIABLES = os.path.join(core, 'cache', 'pdc', 'variables.cfg')

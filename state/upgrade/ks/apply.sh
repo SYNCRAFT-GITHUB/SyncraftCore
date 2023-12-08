@@ -1,7 +1,7 @@
 cd /home/pi
 
-process="Update Syncraft X1 KlipperScreen"
-fresh_ks_dir=/home/pi/SyncraftCore/store/fresh/KlipperScreen
+process="Update Syncraft KlipperScreen"
+fresh_ks_dir=/home/pi/SyncraftCore/store/fresh/KlipperScreenIDEX
 machine_ks_dir=/home/pi/KlipperScreen
 
 echo "[HELPER] START: $process."

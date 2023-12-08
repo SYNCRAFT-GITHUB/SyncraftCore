@@ -26,7 +26,7 @@ class PATH:
 
         class STOCK:
             PATH = os.path.join(core, 'store', 'stock')
-            KS = os.path.join(core, 'store', 'stock', 'KlipperScreen')
+            KS = os.path.join(core, 'store', 'stock', 'KlipperScreenIDEX')
             PDC = os.path.join(core, 'store', 'stock', 'printerdataconfig')
             KLE = os.path.join(core, 'store', 'stock', 'klipper-led_effect')
             KLIPPER = os.path.join(core, 'store', 'stock', 'klipper')
@@ -35,7 +35,7 @@ class PATH:
 
         class FRESH:
             PATH = os.path.join(core, 'store', 'fresh')
-            KS = os.path.join(core, 'store', 'fresh', 'KlipperScreen')
+            KS = os.path.join(core, 'store', 'fresh', 'KlipperScreenIDEX')
             PDC = os.path.join(core, 'store', 'fresh', 'printerdataconfig')
             KLE = os.path.join(core, 'store', 'fresh', 'klipper-led_effect')
             KLIPPER = os.path.join(core, 'store', 'fresh', 'klipper')
@@ -48,7 +48,7 @@ class PATH:
         class CORE:
             PATH = os.path.join(core, 'cache', 'core')
             PDC = os.path.join(core, 'cache', 'core', 'printerdataconfig')
-            KS = os.path.join(core, 'cache', 'core', 'KlipperScreen')
+            KS = os.path.join(core, 'cache', 'core', 'KlipperScreenIDEX')
             KLE = os.path.join(core, 'cache', 'core', 'klipper-led_effect')
             KLIPPER = os.path.join(core, 'cache', 'core', 'klipper')
             MOONRAKER = os.path.join(core, 'cache', 'core', 'moonraker')
@@ -161,7 +161,7 @@ repo_url = f"{git_profile}/mainsail/releases/latest/download/mainsail.zip"
 unzip_cmd = "unzip -q mainsail.zip"
 os.system(f"cd {PATH.CACHE.CORE.MAINSAIL} && wget -q {repo_url} && {unzip_cmd}")
 
-clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreen.git", PATH.CACHE.CORE.KS, branch(model(), 'ks'))
+clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreenIDEX.git", PATH.CACHE.CORE.KS, branch(model(), 'ks'))
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/printerdataconfig.git", PATH.CACHE.CORE.PDC, branch(model(), 'pdc'))
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", PATH.CACHE.CORE.KLE)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", PATH.CACHE.CORE.KLIPPER)
