@@ -65,7 +65,7 @@ if os.path.exists(DIR.PROP):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info.yaml File OK' + Color.RESET))
 else:
     data_index = {
-        "model": "X2",
+        "model": "IDEX",
     }
 
     with open(DIR.PROP, 'w') as yaml_file:

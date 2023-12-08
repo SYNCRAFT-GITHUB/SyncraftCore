@@ -82,31 +82,6 @@ def model():
     return prop.get('model')
 
 
-def branch(model: str, software: str):
-
-    return "syncraftx2"
-
-    if '2' in model:
-        n = '2'
-    else:
-        n = '1'
-
-    if model == f'X{n}' and software == 'ks':
-        return f'syncraftx{n}'
-    if model == f'X1' and software == 'pdc':
-        return f'syncraftx{n}'
-
-    if model == f'X{n}-BETA' and software == 'ks':
-        return f'syncraftx{n}-beta'
-    if model == f'X{n}-BETA' and software == 'pdc':
-        return f'syncraftx{n}-beta'
-
-    if model == f'X{n}-DEV' and software == 'ks':
-        return f'syncraftx{n}-dev'
-    if model == f'X{n}-DEV' and software == 'pdc':
-        return f'syncraftx{n}-dev'
-
-
 def clone_in_path(repo_url, machine_dir, branch='master'):
     if os.path.exists(machine_dir):
         shutil.rmtree(machine_dir)
@@ -161,8 +136,8 @@ repo_url = f"{git_profile}/mainsail/releases/latest/download/mainsail.zip"
 unzip_cmd = "unzip -q mainsail.zip"
 os.system(f"cd {PATH.CACHE.CORE.MAINSAIL} && wget -q {repo_url} && {unzip_cmd}")
 
-clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreenIDEX.git", PATH.CACHE.CORE.KS, branch(model(), 'ks'))
-clone_in_path("https://github.com/SYNCRAFT-GITHUB/printerdataconfig.git", PATH.CACHE.CORE.PDC, branch(model(), 'pdc'))
+clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreenIDEX.git", PATH.CACHE.CORE.KS)
+clone_in_path("https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git", PATH.CACHE.CORE.PDC)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", PATH.CACHE.CORE.KLE)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", PATH.CACHE.CORE.KLIPPER)
 clone_in_path("https://github.com/SYNCRAFT-GITHUB/moonraker.git", PATH.CACHE.CORE.MOONRAKER)
