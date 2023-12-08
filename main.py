@@ -56,7 +56,7 @@ if check_packages.lower()[0] == 'y':
 
 if not os.path.exists(DIR.ENV):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'Creating env...' + Color.RESET))
-    os.system(f'python -m venv {DIR.ENV}')
+    os.system(f'python3 -m venv {DIR.ENV}')
 
 if os.path.exists(DIR.ENV):
     os.system(f"source {os.path.join(DIR.ENV, 'bin', 'activate')}")
