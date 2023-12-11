@@ -1,5 +1,7 @@
 import os
 
+from dirs import DIR
+
 core = os.path.join('/home', 'pi', 'SyncraftCore')
 class SCRIPT:
     DOWNLOAD = os.path.join(core, 'core', 'update', 'apply.py')
@@ -8,11 +10,12 @@ class SCRIPT:
     TRANSFER = os.path.join(core, 'startup', '1_transfer.py')
 
 scripts = [
-    SCRIPT.DOWNLOAD, SCRIPT.UPGRADE, SCRIPT.MACHINE, SCRIPT.TRANSFER
+    DIR.CORE.UPDATE, DIR.STATE.UPGRADE.APPLY, DIR.MACHINE.APPLY, DIR.STARTUP.GET_FROM_TERM('transfer')
 ]
 
-for script in scripts:
-    if '.py' in script:
-        os.system(f'sudo python3 {script}')
-    elif '.sh' in script:
-        os.system(f'sudo bash {script}')
+def create():
+    for script in scripts:
+        if '.py' in script:
+            os.system(f'sudo python3 {script}')
+        elif '.sh' in script:
+            os.system(f'sudo bash {script}')

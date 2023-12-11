@@ -1,18 +1,19 @@
 import os
 import yaml
+from dirs import DIR
 
-PROP = os.path.join('/home', 'pi', 'SyncraftCore', 'core', 'info.yaml')
+def set_canbus_uuid():
 
-print ('\n➤ Insert Canbus UUID:')
-canbus_uuid = input("➤ ")
+    print ('\n➤ Insert Canbus UUID:')
+    canbus_uuid = input("➤ ")
 
-if canbus_uuid == '':
-    exit()
+    if canbus_uuid == '':
+        return None
 
-with open(PROP, 'r') as yaml_file:
-    data = yaml.safe_load(yaml_file)
+    with open(DIR.CORE.INFO, 'r') as yaml_file:
+        data = yaml.safe_load(yaml_file)
 
-data['canbus_uuid'] = canbus_uuid
+    data['canbus_uuid'] = canbus_uuid
 
-with open(PROP, 'w') as yaml_file:
-    yaml.dump(data, yaml_file, default_flow_style=False)
+    with open(DIR.CORE.INFO, 'w') as yaml_file:
+        yaml.dump(data, yaml_file, default_flow_style=False)
