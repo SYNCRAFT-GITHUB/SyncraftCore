@@ -34,8 +34,6 @@ except:
 from core.create import create
 from core.update import update
 from core.set_canbus_uuid import set_canbus_uuid
-from operation import operations
-from operation import Operation
 import yaml
 import random
 import shutil
