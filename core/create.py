@@ -1,6 +1,5 @@
-import os
-
 from dirs import DIR
+import os
 
 core = os.path.join('/home', 'pi', 'SyncraftCore')
 class SCRIPT:
