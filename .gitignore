@@ -1,4 +1,7 @@
 # IDE
+/backups
+
+# IDE
 .idea
 
 # MacOS Finder Files
