@@ -8,6 +8,7 @@ try:
         os.system('sudo apt-get install python3-pip')
         os.system(f'pip3 install -r {os.path.join(syncraftcore_dir, "core", "requirements.txt")}')
 except:
+    print('Error trying to install python req.')
     pass
 
 from dirs import DIR
