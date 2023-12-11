@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 
 import os
+from dirs import DIR
 syncraftcore_dir = os.path.dirname(__file__)
+
+if not os.path.exists(DIR.ENV.PATH):
+    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'Creating env...' + Color.RESET))
+    os.system(f'python3 -m venv {DIR.ENV.PATH}')
+    os.system(f"source {os.path.join(DIR.ENV.PATH, 'bin', 'activate')}")
+else:
+    os.system(f"source {os.path.join(DIR.ENV.PATH, 'bin', 'activate')}")
 
 try:
     if not os.path.exists(DIR.CORE.INFO):
@@ -11,7 +19,6 @@ except:
     print('Error trying to install python req.')
     pass
 
-from dirs import DIR
 from core.create import create
 from core.update import update
 from core.set_canbus_uuid import set_canbus_uuid
@@ -45,14 +52,6 @@ check_packages = input("➤ ")
 
 if check_packages.lower()[0] == 'y':
     os.system(f'sudo bash {DIR.CORE.REQUIREMENTS}')
-
-if not os.path.exists(DIR.ENV.PATH):
-    print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'Creating env...' + Color.RESET))
-    os.system(f'python3 -m venv {DIR.ENV.PATH}')
-    os.system(f"source {os.path.join(DIR.ENV.PATH, 'bin', 'activate')}")
-else:
-    os.system(f"source {os.path.join(DIR.ENV.PATH, 'bin', 'activate')}")
-
 
 if os.path.exists(DIR.CORE.INFO):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info File OK' + Color.RESET))
