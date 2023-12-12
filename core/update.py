@@ -94,7 +94,7 @@ def update():
         distribute(to=DIR.STORE.STOCK.PATH)
 
     pi_as_owner(DIR.CACHE.CORE.PATH)
-    pi_as_owner(PATH.CACHE.PDC.PATH)
+    pi_as_owner(DIR.CACHE.CORE.PDC.PATH)
     pi_as_owner(DIR.STORE.FRESH.PATH)
 
     clear_dir(DIR.CACHE.CORE.PATH)

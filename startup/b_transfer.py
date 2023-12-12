@@ -36,13 +36,13 @@ def securePermission ():
 securePermission()
 
 # DELETE ALL CONTENT ON PDC CACHE
-if os.path.exists(DIR.CACHE.PDC.PATH):
+if os.path.exists(DIR.CACHE.CORE.PDC.PATH):
     print(f'{name} ✓ Deleting all content in PDC Cache.')
-    shutil.rmtree(DIR.CACHE.PDC.PATH)
+    shutil.rmtree(DIR.CACHE.CORE.PDC.PATH)
 else:
     print(f"{name} ☓ PDC Cache not found. Creating it.")
     try:
-        os.makedirs(DIR.CACHE.PDC.PATH)
+        os.makedirs(DIR.CACHE.CORE.PDC.PATH)
     except Exception as e:
         print(f"{name} ☓ Error trying to create PDC Cache Path, maybe a permission error?")
         print(f"{name} {e}")
@@ -67,15 +67,15 @@ else:
 
 # CREATE A FILE IN CACHE AND WRITE IT'S LINES BASED ON THE EXTRACTED SAVECONFIG LINE
 try:
-    if not os.path.exists(DIR.CACHE.PDC.PATH):
-        os.makedirs(DIR.CACHE.PDC.PATH)
+    if not os.path.exists(DIR.CACHE.CORE.PDC.PATH):
+        os.makedirs(DIR.CACHE.CORE.PDC.PATH)
         print(f'{name} ✓ Created PDC Cache.')
 except Exception as e:
     print(f'{name} ☓ Error trying to create PDC Cache.')
     print(f"{name} {e}")
     exit()
 try:
-    with open(DIR.CACHE.PDC.PRINTER, 'w') as extracted:
+    with open(DIR.CACHE.CORE.PDC.PRINTER, 'w') as extracted:
         if (save_lines):
             extracted.writelines(extracted_saveconfig)
             print(f'{name} ✓ Successfully extracted SaveConfig Lines from PDC Machine to PDC Cache.')
@@ -89,30 +89,30 @@ except Exception as e:
 
 # COPY BOTH KLIPPERSCREEN.CONF AND VARIABLES.CFG TO PDC CACHE
 if os.path.exists(DIR.SYSTEM.PDC.KS):
-    shutil.copyfile(DIR.SYSTEM.PDC.KS, DIR.CACHE.PDC.KS)
+    shutil.copyfile(DIR.SYSTEM.PDC.KS, DIR.CACHE.CORE.PDC.KS)
     print(f'{name} ✓ KS Machine PDC File copied to PDC Cache.')
 elif os.path.exists(DIR.SYSTEM.PDC.BACKUPS.KS):
     print(f'{name} ☓ KS Machine PDC Not found.')
-    shutil.copyfile(DIR.SYSTEM.PDC.BACKUPS.KS, DIR.CACHE.PDC.KS)
+    shutil.copyfile(DIR.SYSTEM.PDC.BACKUPS.KS, DIR.CACHE.CORE.PDC.KS)
     print(f'{name} ✓ KS Machine PDC (Backup) File copied to PDC Cache.')
 elif os.path.exists(DIR.STORE.FRESH.PDC.BACKUPS.KS):
     print(f'{name} ☓ KS Machine PDC (Backup) Not found.')
-    shutil.copyfile(DIR.STORE.FRESH.PDC.BACKUPS.KS, DIR.CACHE.PDC.KS)
+    shutil.copyfile(DIR.STORE.FRESH.PDC.BACKUPS.KS, DIR.CACHE.CORE.PDC.KS)
     print(f'{name} ✓ KS Fresh PDC (Backup) File copied to PDC Cache.')
 else:
     print(f'{name} ☓ No KS Backup file found at all.')
     exit()
 
 if os.path.exists(DIR.SYSTEM.PDC.VARIABLES):
-    shutil.copyfile(DIR.SYSTEM.PDC.VARIABLES, DIR.CACHE.PDC.VARIABLES)
+    shutil.copyfile(DIR.SYSTEM.PDC.VARIABLES, DIR.CACHE.CORE.PDC.VARIABLES)
     print(f'{name} ✓ Variables Machine PDC File copied to PDC Cache.')
 elif os.path.exists(DIR.SYSTEM.PDC.BACKUPS.VARIABLES):
     print(f'{name} ☓ Variables Machine PDC Not found.')
-    shutil.copyfile(DIR.SYSTEM.PDC.BACKUPS.VARIABLES, DIR.CACHE.PDC.VARIABLES)
+    shutil.copyfile(DIR.SYSTEM.PDC.BACKUPS.VARIABLES, DIR.CACHE.CORE.PDC.VARIABLES)
     print(f'{name} ✓ Variables Machine PDC (Backup) File copied to PDC Cache.')
 elif os.path.exists(DIR.STORE.FRESH.PDC.BACKUPS.VARIABLES):
     print(f'{name} ☓ Variables Machine PDC (Backup) Not found.')
-    shutil.copyfile(DIR.STORE.FRESH.PDC.BACKUPS.VARIABLES, DIR.CACHE.PDC.VARIABLES)
+    shutil.copyfile(DIR.STORE.FRESH.PDC.BACKUPS.VARIABLES, DIR.CACHE.CORE.PDC.VARIABLES)
     print(f'{name} ✓ Variables Fresh PDC (Backup) File copied to PDC Cache.')
 else:
     print(f'{name} ☓ No Variables Backup file found at all.')
@@ -141,8 +141,8 @@ else:
 
 # COPY BOTH KLIPPERSCREEN.CONF AND VARIABLES.CFG TO PDC MACHINE
 try:
-    shutil.copyfile(DIR.CACHE.PDC.KS, DIR.SYSTEM.PDC.KS)
-    shutil.copyfile(DIR.CACHE.PDC.VARIABLES, DIR.SYSTEM.PDC.VARIABLES)
+    shutil.copyfile(DIR.CACHE.CORE.PDC.KS, DIR.SYSTEM.PDC.KS)
+    shutil.copyfile(DIR.CACHE.CORE.PDC.VARIABLES, DIR.SYSTEM.PDC.VARIABLES)
     print(print(f'{name} ✓ Transferred both KS and Variables Files from PDC Cache to PDC Machine.'))
 except Exception as e:
     print(f"{name} ☓ Error trying to copy files from Cache to PDC Machine.")
@@ -175,7 +175,7 @@ except Exception as e:
 # APPEND CONTENT TO THAT PRINTER.CFG FILE
 try:
     with open(DIR.SYSTEM.PDC.PRINTER, 'a') as printer_cfg:
-        with open(DIR.CACHE.PDC.PRINTER, 'r') as extracted:
+        with open(DIR.CACHE.CORE.PDC.PRINTER, 'r') as extracted:
             printer_cfg.write('\n')
             for line in extracted:
                 printer_cfg.write(line)
