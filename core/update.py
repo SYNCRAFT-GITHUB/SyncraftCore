@@ -78,10 +78,10 @@ def update():
     os.system(f"cd {DIR.CACHE.CORE.MAINSAIL} && wget -q {repo_url} && {unzip_cmd}")
 
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreenIDEX.git", DIR.CACHE.CORE.KS)
-    clone_in_path("https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git", DIR.CACHE.CORE.PDC)
-    clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", DIR.CACHE.CORE.KLE)
-    clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", DIR.CACHE.CORE.KLIPPER)
-    clone_in_path("https://github.com/SYNCRAFT-GITHUB/moonraker.git", DIR.CACHE.CORE.MOONRAKER)
+    clone_in_path("https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git", DIR.CACHE.CORE.)
+    clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", DIR.CACHE.CORE.KLE.PATH)
+    clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", DIR.CACHE.CORE.KLIPPER.PATH)
+    clone_in_path("https://github.com/SYNCRAFT-GITHUB/moonraker.git", DIR.CACHE.CORE.MOONRAKER.PATH)
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/kiauh", DIR.STORE.KIAUH.PATH)
 
     distribute(to=DIR.STORE.FRESH.PATH)

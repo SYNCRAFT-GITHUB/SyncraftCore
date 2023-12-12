@@ -42,18 +42,18 @@ class DIR:
                 PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'moonraker')
             class MAINSAIL:
                 PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'mainsail')
-        class KS:
-            PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'KlipperScreenIDEX')
-        class PDC:
-            PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig')
-            KS = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'KlipperScreen.conf')
-            PRINTER = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'printer.cfg')
-            VARIABLES = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'variables.cfg')
-            class BACKUPS:
-                PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups')
-                KS = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'KlipperScreen.conf')
-                PRINTER = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'printer.cfg')
-                VARIABLES = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'variables.cfg')
+            class KS:
+                PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'KlipperScreenIDEX')
+            class PDC:
+                PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig')
+                KS = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'KlipperScreen.conf')
+                PRINTER = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'printer.cfg')
+                VARIABLES = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'variables.cfg')
+                class BACKUPS:
+                    PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups')
+                    KS = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'KlipperScreen.conf')
+                    PRINTER = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'printer.cfg')
+                    VARIABLES = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'variables.cfg')
     class BACKUPS:
         PATH = os.path.join(syncraftcore_dir, 'backups')
     class ENV:
