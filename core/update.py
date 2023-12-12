@@ -75,7 +75,7 @@ def update():
     git_profile = "https://github.com/SYNCRAFT-GITHUB"
     repo_url = f"{git_profile}/mainsail/releases/latest/download/mainsail.zip"
     unzip_cmd = "unzip -q mainsail.zip"
-    os.system(f"cd {DIR.CACHE.CORE.MAINSAIL} && wget -q {repo_url} && {unzip_cmd}")
+    os.system(f"cd {DIR.CACHE.CORE.MAINSAIL.PATH} && wget -q {repo_url} && {unzip_cmd}")
 
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreenIDEX.git", DIR.CACHE.CORE.KS.PATH)
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git", DIR.CACHE.CORE.PDC.PATH)
