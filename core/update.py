@@ -77,8 +77,8 @@ def update():
     unzip_cmd = "unzip -q mainsail.zip"
     os.system(f"cd {DIR.CACHE.CORE.MAINSAIL} && wget -q {repo_url} && {unzip_cmd}")
 
-    clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreenIDEX.git", DIR.CACHE.CORE.KS)
-    clone_in_path("https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git", DIR.CACHE.CORE.)
+    clone_in_path("https://github.com/SYNCRAFT-GITHUB/KlipperScreenIDEX.git", DIR.CACHE.CORE.KS.PATH)
+    clone_in_path("https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git", DIR.CACHE.CORE.PDC.PATH)
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", DIR.CACHE.CORE.KLE.PATH)
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", DIR.CACHE.CORE.KLIPPER.PATH)
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/moonraker.git", DIR.CACHE.CORE.MOONRAKER.PATH)
