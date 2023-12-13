@@ -4,6 +4,7 @@ syncraftcore_dir="/home/pi/SyncraftCore"
 startup_dir="/home/pi/SyncraftCore/startup"
 custom_startup_dir="/home/pi/SyncraftCore/custom_startup"
 
+export DISPLAY=:0.0
 if [ -d "$custom_startup_dir" ]; then
 
     source /home/pi/SyncraftCore/env/bin/activate
@@ -18,14 +19,6 @@ elif [ -d "$startup_dir" ]; then
 
 else
     echo -e "[SyncraftCore Startup] Startup Folder not found!"
-fi
-
-export DISPLAY=:0.0
-if [ -f "/home/pi/SyncraftCore/intro/intro.py" ]; then
-
-    source /home/pi/SyncraftCore/env/bin/activate
-    cd "$syncraftcore_dir"
-    sudo python3 -m intro.intro | sudo tee /home/pi/bootlog.txt > /dev/null
 fi
 
 exit 0
