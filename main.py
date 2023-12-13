@@ -162,7 +162,7 @@ while (True):
     for i, action in enumerate(actions):
         print(Color.WHITE + f'[{i}] ' + Color.YELLOW + f'{action.title}' + Color.RESET)
 
-    print(Color.MAGENTA + '\nQ' + Color.RED + ' to Quit' + Color.RESET)
+    print(Color.MAGENTA + '\n|' + Color.CYAN + ' Q ' + Color.RED + 'to Quit' + Color.RESET)
 
     user_input = input('\nACTION: ')
 
