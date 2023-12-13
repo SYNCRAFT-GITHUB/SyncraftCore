@@ -97,11 +97,14 @@ class DIR:
         TRANSFER = os.path.join(syncraftcore_dir, 'pdc', 'transfer.sh')
     class STARTUP:
         PATH = os.path.join(syncraftcore_dir, 'startup')
-        def GET_FROM_TERM(term) -> str:
-            content = os.listdir(os.path.join(syncraftcore_dir, 'startup'))
-            for item in content:
-                if term.lower() in item.lower():
-                    return os.path.join(syncraftcore_dir, 'startup', item)
+        SCRIPT = os.path.join(syncraftcore_dir, 'startup', 'script.py')
+        class MODULES:
+            PATH = os.path.join(syncraftcore_dir, 'startup', 'modules')
+            def GET_FROM_TERM(term) -> str:
+                content = os.listdir(os.path.join(syncraftcore_dir, 'startup', 'modules'))
+                for item in content:
+                    if term.lower() in item.lower():
+                        return os.path.join(syncraftcore_dir, 'startup', 'modules', item)
     class STATE:
         PATH = os.path.join(syncraftcore_dir, 'state')
         class DOWNGRADE:

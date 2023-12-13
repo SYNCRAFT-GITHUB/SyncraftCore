@@ -1,5 +1,6 @@
 from dirs import DIR
 from core.update import update
+from startup.modules.transfer import transfer
 import os
 
 core = os.path.join('/home', 'pi', 'SyncraftCore')
@@ -10,7 +11,7 @@ class SCRIPT:
     TRANSFER = os.path.join(core, 'startup', '1_transfer.py')
 
 scripts = [
-    DIR.STATE.UPGRADE.APPLY, DIR.MACHINE.APPLY, DIR.STARTUP.GET_FROM_TERM('transfer')
+    DIR.STATE.UPGRADE.APPLY, DIR.MACHINE.APPLY
 ]
 
 def create():
@@ -22,3 +23,5 @@ def create():
             os.system(f'sudo python3 {script}')
         elif '.sh' in script:
             os.system(f'sudo bash {script}')
+
+    transfer()
