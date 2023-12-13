@@ -103,6 +103,11 @@ actions = [
 def alertMissing():
 
     check_dirs = [
+        DIR.SYSTEM.KLIPPER.PATH,
+        DIR.SYSTEM.MOONRAKER.PATH,
+        DIR.SYSTEM.KS.PATH,
+        DIR.SYSTEM.MAINSAIL.PATH,
+        DIR.SYSTEM.PDC.PATH,
         DIR.STORE.KIAUH.PATH,
         DIR.STORE.FRESH.PATH,
         DIR.STORE.STOCK.PATH
@@ -157,7 +162,13 @@ while (True):
     for i, action in enumerate(actions):
         print(Color.WHITE + f'[{i}] ' + Color.YELLOW + f'{action.title}' + Color.RESET)
 
+    print(Color.MAGENTA + '\nQ' + Color.RED + ' to Quit' + Color.RESET)
+
     user_input = input('\nACTION: ')
+
+    if user_input.lower() == 'q':
+        os.system('clear')
+        exit()
 
     for i, action in enumerate(actions):
         if user_input == f'{i}':
