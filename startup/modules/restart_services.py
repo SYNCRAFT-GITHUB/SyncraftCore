@@ -6,5 +6,6 @@ def restart_services():
         os.system('sudo systemctl daemon-reload')
         os.system('service systemd-udevd --full-restart')
         os.system('sudo service sxusb restart')
+        os.system('sudo service KlipperScreen restart &')
     except:
         pass
