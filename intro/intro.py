@@ -19,8 +19,8 @@ def play_boot_video():
                 os.system(f'sudo -u pi cvlc -f --no-video-title-show {DIR.INTRO.INVADER}')
             if 'colorful' in content and os.path.exists(DIR.INTRO.COLORFUL):
                 os.system(f'sudo -u pi cvlc -f --no-video-title-show {DIR.INTRO.COLORFUL}')
-            if 'neon' in content and os.path.exists(DIR.INTRO.NEON):
-                os.system(f'sudo -u pi cvlc -f --no-video-title-show {DIR.INTRO.NEON}')
+            if 'neon' in content and os.path.exists(DIR.INTRO.DEFAULT):
+                os.system(f'sudo -u pi cvlc -f --no-video-title-show {DIR.INTRO.DEFAULT}')
             if 'evening' in content and os.path.exists(DIR.INTRO.DEFAULT):
                 os.system(f'sudo -u pi cvlc -f --no-video-title-show {DIR.INTRO.DEFAULT}')
             elif os.path.exists(DIR.INTRO.DEFAULT):
