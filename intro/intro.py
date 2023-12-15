@@ -11,7 +11,7 @@ def play_boot_video():
         with open(DIR.SYSTEM.PDC.KS, 'r') as config:
             content = ''.join(config.readlines()).lower()
 
-            if current_date.month == 12 and current_date.day == 15:
+            if current_date.month == 9 and current_date.day == 17:
                 os.system(f'sudo -u pi cvlc -f --no-video-title-show {DIR.INTRO.STAR}')
                 return None
 
