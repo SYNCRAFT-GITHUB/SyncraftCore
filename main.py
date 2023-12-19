@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from datetime import datetime
 import sys
 import os
 
@@ -61,6 +62,7 @@ if os.path.exists(DIR.CORE.INFO):
 else:
     data_index = {
         "model": "IDEX",
+        "birth": datetime.now().strftime("%Y-%m-%d")
     }
 
     with open(DIR.CORE.INFO, 'w') as yaml_file:
@@ -135,6 +137,7 @@ while (True):
         prop = yaml.safe_load(prop)
     class PROP:
         MODEL = prop.get('model')
+        BIRTH = prop.get('birth')
 
     hostname = socket.gethostname()
     last_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(DIR.STORE.FRESH.PATH)))
@@ -153,7 +156,7 @@ while (True):
     alertMissing()
 
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Model: ' + Color.BLUE + f'{PROP.MODEL}' + Color.RESET)
-
+    print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Birth: ' + Color.BLUE + f'{PROP.BIRTH}' + Color.RESET)
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Syncraft Host: ' + Color.BLUE + hostname + Color.RESET)
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Internet Access: ' + Color.BLUE + ('OK' if internet() else 'OFFLINE') + Color.RESET)
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Last Updated: ' + Color.BLUE + last_date + Color.RESET)
