@@ -3,6 +3,7 @@
 
 # IDE
 .idea
+.vscode
 
 # MacOS Finder Files
 .DS_Store

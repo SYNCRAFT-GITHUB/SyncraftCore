@@ -10,14 +10,14 @@ def transfer():
     name = '[TRANSFER SCRIPT]'
     saveconfig_line = '#*# <---------------------- SAVE_CONFIG ---------------------->'
     saveconfig_backup = """
-    #*# <---------------------- SAVE_CONFIG ---------------------->
-    #*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
-    #*#
-    #*# [stepper_z]
-    #*# position_endstop = 340
-    #*#
-    #*# [probe]
-    #*# z_offset = -0.3
+#*# <---------------------- SAVE_CONFIG ---------------------->
+#*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
+#*#
+#*# [stepper_z]
+#*# position_endstop = 340
+#*#
+#*# [probe]
+#*# z_offset = -0.3
     """
 
     save_lines: bool = False
