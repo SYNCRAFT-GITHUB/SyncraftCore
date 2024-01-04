@@ -2,13 +2,20 @@ cd /home/pi
 
 process="Downgrade Klipper LED Effects"
 stock_kle_dir=/home/pi/SyncraftCore/store/stock/klipper-led_effect
+fresh_kle_dir=/home/pi/SyncraftCore/store/fresh/klipper-led_effect
 machine_kle_dir=/home/pi/klipper-led_effect
 
 echo "[HELPER] START: $process."
+
 if [ -d "$machine_kle_dir" ]; then
     sudo rm -r $machine_kle_dir
 fi
 
+if [ -d "$fresh_kle_dir" ]; then
+    sudo rm -r $fresh_kle_dir
+fi
+
+sudo cp -r $stock_kle_dir $fresh_kle_dir
 sudo cp -r $stock_kle_dir /home/pi
 cd "$machine_kle_dir"
 sudo -u pi bash install-led_effect.sh
