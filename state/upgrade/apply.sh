@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# rafaelSwi /*
+# Applies all software stored in the
+# fresh directory to their appropriate
+# execution directories.
+
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 for folder in "$dir"/*; do
