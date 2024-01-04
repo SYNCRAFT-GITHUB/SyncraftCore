@@ -1,3 +1,7 @@
+# rafaelSwi /*
+# Without this, front-end will not start.
+# I don't recommend ever removing or touching this.
+
 xwrapper='allowed_users=anybody
 needs_root_rights=yes'
 

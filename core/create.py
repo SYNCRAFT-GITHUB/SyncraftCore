@@ -3,6 +3,10 @@ from core.update import update
 from startup.modules.transfer import transfer
 import os
 
+# rafaelSwi /*
+# Calls all scripts and functions necessary
+# to "create" the machine for the first time.
+
 core = os.path.join('/home', 'pi', 'SyncraftCore')
 class SCRIPT:
     DOWNLOAD = os.path.join(core, 'core', 'update', 'apply.py')

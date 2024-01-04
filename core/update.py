@@ -5,6 +5,11 @@ import subprocess
 from git import Repo
 from dirs import DIR
 
+# rafaelSwi /*
+# Download all the latest Syncraft software on Github, and if you want
+# to run this script for the first time on a machine (or simply think it's necessary),
+# save these downloads in the stock folder, to use as a reference when using factory reset.
+
 pi = os.path.join('/home', 'pi')
 core = os.path.join(pi, 'SyncraftCore')
 py = 'apply.py'

@@ -1,5 +1,7 @@
+# rafaelSwi: Install the necessary Linux system packages on the machine
+
 install_package() {
-    local name="$1"  # First argument
+    local name="$1"
     echo "[HELPER] START: $name."
     sudo apt-get install -qqy $name
 echo "[HELPER] DONE: $name."

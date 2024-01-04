@@ -1,3 +1,7 @@
+# rafaelSwi /*
+# Install the necessary python packages on the machine
+# without using a python environment
+
 echo "[HELPER] Install python3-pip"
 
 sudo apt-get install python3-pip

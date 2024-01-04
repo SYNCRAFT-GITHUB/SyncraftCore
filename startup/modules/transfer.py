@@ -5,6 +5,12 @@ import shutil
 import yaml
 import os
 
+# rafaelSwi /*
+# This script replaces the klipper config folder saved on the machine with a
+# more recent version saved on the machine, saving the properties of
+# some files (such as printer.cfg parameters) and KlipperScreen settings.
+# It also applies the canbus UUID to printer.cfg before transferring it.
+
 def transfer():
 
     name = '[TRANSFER SCRIPT]'

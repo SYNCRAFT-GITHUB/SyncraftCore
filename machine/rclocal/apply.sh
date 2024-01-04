@@ -1,3 +1,8 @@
+# rafaelSwi /*
+# Defines what the machine will do when you start it.
+# It calls the script inside SyncraftCore, which executes
+# the others Python scripts inside the boot folder.
+
 content='#!/bin/bash -e
 
 syncraftcore_dir="/home/pi/SyncraftCore"

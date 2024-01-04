@@ -1,3 +1,8 @@
+# rafaelSwi /*
+# Creates the service necessary to use USB Devices.
+# Also creates a link in the klipper gcodes folder to the
+# directory that the USB will appear within the system.
+
 content="[Unit]
 Description=Syncraft USB Mount Service
 

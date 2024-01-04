@@ -1,3 +1,5 @@
+# rafaelSwi: Necessary for the USB Device to work correctly.
+
 content="ENV{ID_FS_USAGE}==\"filesystem\", ENV{UDISKS_FILESYSTEM_SHARED}=\"1\""
 
 process='Apply udisks Rules.'

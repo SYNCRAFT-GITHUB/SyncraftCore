@@ -1,6 +1,10 @@
 from dirs import DIR
 import os
 
+# rafaelSwi /*
+# Transfers the latest software saved on the machine
+# to the execution directories where they should normally be.
+
 def upgrade():
 
     # Upgrade Mainsail

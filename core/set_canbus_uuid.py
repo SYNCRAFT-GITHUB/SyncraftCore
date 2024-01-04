@@ -2,6 +2,10 @@ import os
 import yaml
 from dirs import DIR
 
+# rafaelSwi /*
+# Applies an ID to the SyncraftCore info file,
+# not directly to the cfg file that klipper reads.
+
 def set_canbus_uuid():
 
     print ('\n➤ Insert Canbus UUID:')
