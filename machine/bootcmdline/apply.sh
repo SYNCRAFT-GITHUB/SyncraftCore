@@ -1,6 +1,6 @@
 path=/boot/cmdline.txt
 
-content="consoleblank=1 logo.nologo quiet loglevel=0 plymouth.enable=0 vt.global_cursor_default=0 plymouth.ignore-serial-consoles splash fastboot noatime nodiratime noram"
+content="consoleblank=1 logo.nologo quiet loglevel=1 plymouth.enable=0 vt.global_cursor_default=0 plymouth.ignore-serial-consoles splash fastboot noatime nodiratime noram"
 
 process='Modify CMDLINE.'
 echo "[HELPER] START: $process."
