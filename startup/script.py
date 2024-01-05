@@ -1,7 +1,7 @@
 from startup.modules.transfer import transfer
 from startup.modules.upgrade import upgrade
 from startup.modules.restart_services import restart_services
-from intro.intro import play_boot_video
+from startup.modules.intro import play_boot_video
 
 # rafaelSwi /*
 # Executes all Python functions in sequence when booting the machine.
