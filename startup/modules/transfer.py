@@ -8,7 +8,7 @@ import os
 # rafaelSwi /*
 # This script replaces the klipper config folder saved on the machine with a
 # more recent version saved on the machine, saving the properties of
-# some files (such as printer.cfg parameters) and KlipperScreen settings.
+# some files (such as printer.cfg parameters) and KS/SV settings.
 # It also applies the canbus UUID to printer.cfg before transferring it.
 
 def transfer():
@@ -95,20 +95,20 @@ def transfer():
         print(f"{name} {e}")
         exit()
 
-    # COPY BOTH KLIPPERSCREEN.CONF AND VARIABLES.CFG TO PDC CACHE
-    if os.path.exists(DIR.SYSTEM.PDC.KS):
-        shutil.copyfile(DIR.SYSTEM.PDC.KS, DIR.CACHE.CORE.PDC.KS)
-        print(f'{name} ✓ KS Machine PDC File copied to PDC Cache.')
-    elif os.path.exists(DIR.SYSTEM.PDC.BACKUPS.KS):
-        print(f'{name} ☓ KS Machine PDC Not found.')
-        shutil.copyfile(DIR.SYSTEM.PDC.BACKUPS.KS, DIR.CACHE.CORE.PDC.KS)
-        print(f'{name} ✓ KS Machine PDC (Backup) File copied to PDC Cache.')
-    elif os.path.exists(DIR.STORE.FRESH.PDC.BACKUPS.KS):
-        print(f'{name} ☓ KS Machine PDC (Backup) Not found.')
-        shutil.copyfile(DIR.STORE.FRESH.PDC.BACKUPS.KS, DIR.CACHE.CORE.PDC.KS)
-        print(f'{name} ✓ KS Fresh PDC (Backup) File copied to PDC Cache.')
+    # COPY BOTH SWIERVISION.CONF AND VARIABLES.CFG TO PDC CACHE
+    if os.path.exists(DIR.SYSTEM.PDC.SV):
+        shutil.copyfile(DIR.SYSTEM.PDC.SV, DIR.CACHE.CORE.PDC.SV)
+        print(f'{name} ✓ SV Machine PDC File copied to PDC Cache.')
+    elif os.path.exists(DIR.SYSTEM.PDC.BACKUPS.SV):
+        print(f'{name} ☓ SV Machine PDC Not found.')
+        shutil.copyfile(DIR.SYSTEM.PDC.BACKUPS.SV, DIR.CACHE.CORE.PDC.SV)
+        print(f'{name} ✓ SV Machine PDC (Backup) File copied to PDC Cache.')
+    elif os.path.exists(DIR.STORE.FRESH.PDC.BACKUPS.SV):
+        print(f'{name} ☓ SV Machine PDC (Backup) Not found.')
+        shutil.copyfile(DIR.STORE.FRESH.PDC.BACKUPS.SV, DIR.CACHE.CORE.PDC.SV)
+        print(f'{name} ✓ SV Fresh PDC (Backup) File copied to PDC Cache.')
     else:
-        print(f'{name} ☓ No KS Backup file found at all.')
+        print(f'{name} ☓ No SV Backup file found at all.')
         exit()
 
     if os.path.exists(DIR.SYSTEM.PDC.VARIABLES):
@@ -147,11 +147,11 @@ def transfer():
         print(f'{name} ☓ No Fresh PDC Available.')
         exit()
 
-    # COPY BOTH KLIPPERSCREEN.CONF AND VARIABLES.CFG TO PDC MACHINE
+    # COPY BOTH SWIERVISION.CONF AND VARIABLES.CFG TO PDC MACHINE
     try:
-        shutil.copyfile(DIR.CACHE.CORE.PDC.KS, DIR.SYSTEM.PDC.KS)
+        shutil.copyfile(DIR.CACHE.CORE.PDC.SV, DIR.SYSTEM.PDC.SV)
         shutil.copyfile(DIR.CACHE.CORE.PDC.VARIABLES, DIR.SYSTEM.PDC.VARIABLES)
-        print(print(f'{name} ✓ Transferred both KS and Variables Files from PDC Cache to PDC Machine.'))
+        print(print(f'{name} ✓ Transferred both SV and Variables Files from PDC Cache to PDC Machine.'))
     except Exception as e:
         print(f"{name} ☓ Error trying to copy files from Cache to PDC Machine.")
         print(f"{name} {e}")

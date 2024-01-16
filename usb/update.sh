@@ -1,14 +1,14 @@
 #################
-# KLIPPERSCREEN #
+#  SWIERVISION  #
 #################
 
 cd /home/pi
 
 name="[USB UPDATE SCRIPT]"
 
-process="$name Update Syncraft KlipperScreen"
-softwares_dir=/home/pi/printer_data/gcodes/USB/*/SYNCRAFT/content/KlipperScreenIDEX
-fresh_dir=/home/pi/SyncraftCore/state/fresh/KlipperScreenIDEX
+process="$name Update SwierVision"
+softwares_dir=/home/pi/printer_data/gcodes/USB/*/SYNCRAFT/content/SwierVision
+fresh_dir=/home/pi/SyncraftCore/state/fresh/SwierVision
 
 echo "[HELPER] START: $process."
 if [ -d "$fresh_dir" ]; then

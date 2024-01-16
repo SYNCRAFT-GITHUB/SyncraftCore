@@ -11,7 +11,7 @@ def play_boot_video():
 
         current_date = datetime.now().date()
 
-        with open(DIR.SYSTEM.PDC.KS, 'r') as config:
+        with open(DIR.SYSTEM.PDC.SV, 'r') as config:
             content = ''.join(config.readlines()).lower()
 
             if current_date.month == 9 and current_date.day == 17:

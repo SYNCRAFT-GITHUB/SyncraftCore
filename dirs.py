@@ -7,12 +7,12 @@ class DIR:
     class SYSTEM:
         class PDC:
             PATH = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config')
-            KS = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'KlipperScreen.conf')
+            SV = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'SwierVision.conf')
             PRINTER = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'printer.cfg')
             VARIABLES = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'variables.cfg')
             class BACKUPS:
                 PATH = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'backups')
-                KS = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'backups', 'KlipperScreen.conf')
+                SV = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'backups', 'SwierVision.conf')
                 PRINTER = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'backups', 'printer.cfg')
                 VARIABLES = os.path.join(os.path.dirname(__file__), '..', 'printer_data', 'config', 'backups', 'variables.cfg')
         class MOONRAKER:
@@ -21,8 +21,8 @@ class DIR:
             PATH = os.path.join(os.path.dirname(__file__), '..', 'klipper')
         class MAINSAIL:
             PATH = os.path.join(os.path.dirname(__file__), '..', 'mainsail')
-        class KS:
-            PATH = os.path.join(os.path.dirname(__file__), '..', 'KlipperScreen')
+        class SV:
+            PATH = os.path.join(os.path.dirname(__file__), '..', 'SwierVision')
     class CORE:
         PATH = os.path.join(syncraftcore_dir, 'core')
         CREATE = os.path.join(syncraftcore_dir, 'core', 'create.py')
@@ -42,16 +42,16 @@ class DIR:
                 PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'moonraker')
             class MAINSAIL:
                 PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'mainsail')
-            class KS:
-                PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'KlipperScreenIDEX')
+            class SV:
+                PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'SwierVision')
             class PDC:
                 PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig')
-                KS = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'KlipperScreen.conf')
+                SV = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'SwierVision.conf')
                 PRINTER = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'printer.cfg')
                 VARIABLES = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'variables.cfg')
                 class BACKUPS:
                     PATH = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups')
-                    KS = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'KlipperScreen.conf')
+                    SV = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'SwierVision.conf')
                     PRINTER = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'printer.cfg')
                     VARIABLES = os.path.join(syncraftcore_dir, 'cache', 'core', 'IDEXConfig', 'backups', 'variables.cfg')
     class BACKUPS:
@@ -115,9 +115,9 @@ class DIR:
             class KLE:
                 PATH = os.path.join(syncraftcore_dir, 'state', 'downgrade', 'kle')
                 APPLY = os.path.join(syncraftcore_dir, 'state', 'downgrade', 'kle', 'apply.sh')
-            class KS:
-                PATH = os.path.join(syncraftcore_dir, 'state', 'downgrade', 'ks')
-                APPLY = os.path.join(syncraftcore_dir, 'state', 'downgrade', 'ks', 'apply.sh')
+            class SV:
+                PATH = os.path.join(syncraftcore_dir, 'state', 'downgrade', 'sv')
+                APPLY = os.path.join(syncraftcore_dir, 'state', 'downgrade', 'sv', 'apply.sh')
             class MAINSAIL:
                 PATH = os.path.join(syncraftcore_dir, 'state', 'downgrade', 'mainsail')
                 APPLY = os.path.join(syncraftcore_dir, 'state', 'downgrade', 'mainsail', 'apply.sh')
@@ -127,9 +127,9 @@ class DIR:
             class KLE:
                 PATH = os.path.join(syncraftcore_dir, 'state', 'upgrade', 'kle')
                 APPLY = os.path.join(syncraftcore_dir, 'state', 'upgrade', 'kle', 'apply.sh')
-            class KS:
-                PATH = os.path.join(syncraftcore_dir, 'state', 'upgrade', 'ks')
-                APPLY = os.path.join(syncraftcore_dir, 'state', 'upgrade', 'ks', 'apply.sh')
+            class SV:
+                PATH = os.path.join(syncraftcore_dir, 'state', 'upgrade', 'sv')
+                APPLY = os.path.join(syncraftcore_dir, 'state', 'upgrade', 'sv', 'apply.sh')
             class MAINSAIL:
                 PATH = os.path.join(syncraftcore_dir, 'state', 'upgrade', 'mainsail')
                 APPLY = os.path.join(syncraftcore_dir, 'state', 'upgrade', 'mainsail', 'apply.sh')
@@ -147,16 +147,16 @@ class DIR:
                 PATH = os.path.join(syncraftcore_dir, 'store', 'fresh', 'moonraker')
             class MAINSAIL:
                 PATH = os.path.join(syncraftcore_dir, 'store', 'fresh', 'mainsail')
-            class KS:
-                PATH = os.path.join(syncraftcore_dir, 'store', 'fresh', 'KlipperScreenIDEX')
+            class SV:
+                PATH = os.path.join(syncraftcore_dir, 'store', 'fresh', 'SwierVision')
             class PDC:
                 PATH = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig')
-                KS = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'KlipperScreen.conf')
+                SV = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'SwierVision.conf')
                 PRINTER = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'printer.cfg')
                 VARIABLES = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'variables.cfg')
                 class BACKUPS:
                     PATH = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'backups')
-                    KS = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'backups', 'KlipperScreen.conf')
+                    SV = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'backups', 'SwierVision.conf')
                     PRINTER = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'backups', 'printer.cfg')
                     VARIABLES = os.path.join(syncraftcore_dir, 'store', 'fresh', 'IDEXConfig', 'backups', 'variables.cfg')
         class STOCK:
@@ -169,16 +169,16 @@ class DIR:
                 PATH = os.path.join(syncraftcore_dir, 'store', 'stock', 'moonraker')
             class MAINSAIL:
                 PATH = os.path.join(syncraftcore_dir, 'store', 'stock', 'mainsail')
-            class KS:
-                PATH = os.path.join(syncraftcore_dir, 'store', 'stock', 'KlipperScreenIDEX')
+            class SV:
+                PATH = os.path.join(syncraftcore_dir, 'store', 'stock', 'SwierVision')
             class PDC:
                 PATH = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig')
-                KS = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'KlipperScreen.conf')
+                SV = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'SwierVision.conf')
                 PRINTER = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'printer.cfg')
                 VARIABLES = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'variables.cfg')
                 class BACKUPS:
                     PATH = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'backups')
-                    KS = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'backups', 'KlipperScreen.conf')
+                    SV = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'backups', 'SwierVision.conf')
                     PRINTER = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'backups', 'printer.cfg')
                     VARIABLES = os.path.join(syncraftcore_dir, 'store', 'stock', 'IDEXConfig', 'backups', 'variables.cfg')
     class USB:

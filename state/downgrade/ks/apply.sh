@@ -1,20 +1,20 @@
 cd /home/pi
 
-process="Downgrade Syncraft KlipperScreen"
-stock_ks_dir=/home/pi/SyncraftCore/store/stock/KlipperScreenIDEX
-fresh_ks_dir=/home/pi/SyncraftCore/store/fresh/KlipperScreenIDEX
-machine_ks_dir=/home/pi/KlipperScreen
+process="Downgrade Syncraft SwierVision"
+stock_sv_dir=/home/pi/SyncraftCore/store/stock/SwierVision
+fresh_sv_dir=/home/pi/SyncraftCore/store/fresh/SwierVision
+machine_sv_dir=/home/pi/SwierVision
 
 echo "[HELPER] START: $process."
 
-if [ -d "$machine_ks_dir" ]; then
-    sudo rm -r $machine_ks_dir
+if [ -d "$machine_sv_dir" ]; then
+    sudo rm -r $machine_sv_dir
 fi
 
-if [ -d "$fresh_ks_dir" ]; then
-    sudo rm -r $fresh_ks_dir
+if [ -d "$fresh_sv_dir" ]; then
+    sudo rm -r $fresh_sv_dir
 fi
 
-sudo cp -r $stock_ks_dir $fresh_ks_dir
-sudo cp -r $stock_ks_dir $machine_ks_dir
+sudo cp -r $stock_sv_dir $fresh_sv_dir
+sudo cp -r $stock_sv_dir $machine_sv_dir
 echo "[HELPER] DONE: $process."

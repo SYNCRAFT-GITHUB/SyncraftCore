@@ -1,12 +1,12 @@
 cd /home/pi
 
-process="Update Syncraft KlipperScreen"
-fresh_ks_dir=/home/pi/SyncraftCore/store/fresh/KlipperScreenIDEX
-machine_ks_dir=/home/pi/KlipperScreen
+process="Update Syncraft SwierVision"
+fresh_sv_dir=/home/pi/SyncraftCore/store/fresh/SwierVision
+machine_sv_dir=/home/pi/SwierVision
 
 echo "[HELPER] START: $process."
-if [ -d "$machine_ks_dir" ]; then
-    sudo rm -r $machine_ks_dir
+if [ -d "$machine_sv_dir" ]; then
+    sudo rm -r $machine_sv_dir
 fi
-sudo cp -r $fresh_ks_dir $machine_ks_dir
+sudo cp -r $fresh_sv_dir $machine_sv_dir
 echo "[HELPER] DONE: $process."

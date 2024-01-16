@@ -107,7 +107,7 @@ def alertMissing():
     check_dirs = [
         DIR.SYSTEM.KLIPPER.PATH,
         DIR.SYSTEM.MOONRAKER.PATH,
-        DIR.SYSTEM.KS.PATH,
+        DIR.SYSTEM.SV.PATH,
         DIR.SYSTEM.MAINSAIL.PATH,
         DIR.SYSTEM.PDC.PATH,
         DIR.STORE.KIAUH.PATH,

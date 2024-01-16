@@ -1,7 +1,5 @@
 # IDE
 /backups
-
-# IDE
 .idea
 .vscode
 
@@ -27,7 +25,7 @@ core/info.yaml
 /store/fresh
 /store/kiauh
 
-# KlipperScreen materials
+# KS/SV materials
 /materials/custom.json
 
 # Python cache

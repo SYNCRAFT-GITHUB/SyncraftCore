@@ -20,7 +20,7 @@ if [ ! -d "$folder_name" ]; then
 fi
 
 sudo cp "$script_directory/installer-mac.zip" "$folder_name"
-sudo cp "$script_directory/installer-windows.zip" "$folder_name"
+sudo cp "$script_directory/installer-win.zip" "$folder_name"
 
 
 if [ $? -eq 0 ]; then

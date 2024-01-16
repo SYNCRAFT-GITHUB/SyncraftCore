@@ -10,10 +10,10 @@ def upgrade():
     # Upgrade Mainsail
     os.system(f'sudo bash {DIR.STATE.UPGRADE.APPLY}')
 
-    # Upgrade KS
-    os.system(f'sudo bash {DIR.STATE.UPGRADE.KS.APPLY}')
+    # Upgrade SV
+    os.system(f'sudo bash {DIR.STATE.UPGRADE.SV.APPLY}')
 
-    if os.path.exists(DIR.SYSTEM.KS.PATH):
-        os.system(f'sudo chown -R pi:1000 {DIR.SYSTEM.KS.PATH}')
+    if os.path.exists(DIR.SYSTEM.SV.PATH):
+        os.system(f'sudo chown -R pi:1000 {DIR.SYSTEM.SV.PATH}')
 
-    os.system('sudo service KlipperScreen restart')
+    os.system('sudo service SwierVision restart')
