@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from datetime import datetime
+import socket
 import sys
 import os
 
@@ -71,15 +72,15 @@ else:
     
 def internet():
     try:
-        response = requests.get("https://www.google.com", timeout=5)
+        socket.create_connection(("www.github.com", 80))
         return True
-    except requests.ConnectionError:
+    except:
         return False
 
 def execute_bash(path: str, sudo=False, web=False):
     if web and internet():
         pass
-    else:
+    elif web and not internet():
         return None
     cmd = 'sudo bash' if sudo else 'bash'
     os.system(f"{cmd} {path}")
