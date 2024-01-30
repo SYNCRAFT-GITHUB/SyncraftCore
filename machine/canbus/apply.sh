@@ -1,6 +1,6 @@
 # rafaelSwi /*
 # Creates some essential Canbus interface/communication files.
-# You can find very useful information at this link:
+# Useful information:
 # Link 1: https://github.com/Esoterical/voron_canbus
 # Link 2: https://github.com/Esoterical/voron_canbus/tree/main/mainboard_flashing
 

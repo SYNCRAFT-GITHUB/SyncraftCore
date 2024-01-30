@@ -157,17 +157,31 @@ def transfer():
         print(f"{name} {e}")
         exit()
 
-    # INSERT CANBUS UUID INTO PRINTER.CFG
+    # INSERT MAIN CANBUS UUID INTO PRINTER.CFG
     try:
         config = configparser.ConfigParser()
         config.read(DIR.SYSTEM.PDC.BACKUPS.PRINTER)
         if config.has_section('mcu') and config.has_option('mcu', 'canbus_uuid'):
             with open(DIR.CORE.INFO, 'r') as prop_file:
                 data = yaml.safe_load(prop_file)
-                config.set('mcu', 'canbus_uuid', data['canbus_uuid'])
+                config.set('mcu', 'canbus_uuid', data['main_canbus_uuid'])
                 with open (DIR.SYSTEM.PDC.BACKUPS.PRINTER, 'w') as printercfg_file:
                     config.write(printercfg_file)
-                    print(print(f'{name} ✓ PDC Machine Backup Printer file now has updated Canbus UUID.'))
+                    print(print(f'{name} ✓ PDC Machine Backup Printer file now has updated Canbus UUID (main mcu).'))
+    except Exception as e:
+        print(print(f'{name} ☓ Error trying to update Canbus UUID in printer cfg file.'))
+
+    # INSERT RP2040 (ONE) CANBUS UUID INTO PRINTER.CFG
+    try:
+        config = configparser.ConfigParser()
+        config.read(DIR.SYSTEM.PDC.BACKUPS.PRINTER)
+        if config.has_section('mcu rp2040') and config.has_option('mcu rp2040', 'canbus_uuid'):
+            with open(DIR.CORE.INFO, 'r') as prop_file:
+                data = yaml.safe_load(prop_file)
+                config.set('mcu rp2040', 'canbus_uuid', data['rp2040_one_uuid'])
+                with open (DIR.SYSTEM.PDC.BACKUPS.PRINTER, 'w') as printercfg_file:
+                    config.write(printercfg_file)
+                    print(print(f'{name} ✓ PDC Machine Backup Printer file now has updated Canbus UUID (RP2040 ONE).'))
     except Exception as e:
         print(print(f'{name} ☓ Error trying to update Canbus UUID in printer cfg file.'))
 

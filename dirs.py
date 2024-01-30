@@ -28,7 +28,9 @@ class DIR:
         CREATE = os.path.join(syncraftcore_dir, 'core', 'create.py')
         INFO = os.path.join(syncraftcore_dir, 'core', 'info.yaml')
         REQUIREMENTS = os.path.join(syncraftcore_dir, 'core', 'requirements.txt')
-        SET_CANBUS_UUID = os.path.join(syncraftcore_dir, 'core', 'set_canbus_uuid.py')
+        SET_MAIN_CANBUS_UUID = os.path.join(syncraftcore_dir, 'core', 'set_main_canbus_uuid.py')
+        SET_RP2040_ONE_UUID = os.path.join(syncraftcore_dir, 'core', 'set_rp2040_one_uuid.py')
+        SET_RP2040_TWO_UUID = os.path.join(syncraftcore_dir, 'core', 'set_rp2040_one_uuid.py')
         UPDATE = os.path.join(syncraftcore_dir, 'core', 'update.py')
     class CACHE:
         PATH = os.path.join(syncraftcore_dir, 'cache')

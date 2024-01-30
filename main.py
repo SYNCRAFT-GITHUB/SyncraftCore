@@ -39,7 +39,9 @@ except:
 
 from core.create import create
 from core.update import update
-from core.set_canbus_uuid import set_canbus_uuid
+from core.set_main_canbus_uuid import set_main_canbus_uuid
+from core.set_rp2040_one_uuid import set_rp2040_one_uuid
+from core.set_rp2040_two_uuid import set_rp2040_two_uuid
 import yaml
 import random
 import shutil
@@ -100,7 +102,9 @@ actions = [
     Action('Install Python Req.', execute_bash, DIR.MACHINE.PYTHONREQ.APPLY),
     Action('Export Logs to USB', execute_bash, DIR.USB.EXPORT_LOGS),
     Action('Export Slicer Packs to USB', execute_bash, DIR.USB.SLICER.TRANSFER),
-    Action('Set Canbus UUID', set_canbus_uuid)
+    Action('Set Main Canbus UUID', set_main_canbus_uuid),
+    Action('Set RP2040 (1) Canbus UUID', set_rp2040_one_uuid),
+    Action('Set RP2040 (2) Canbus UUID', set_rp2040_two_uuid)
 ]
 
 def alertMissing():
