@@ -101,7 +101,6 @@ actions = [
     Action('Reset Machine Properties', execute_bash, DIR.MACHINE.APPLY),
     Action('Install Python Req.', execute_bash, DIR.MACHINE.PYTHONREQ.APPLY),
     Action('Export Logs to USB', execute_bash, DIR.USB.EXPORT_LOGS),
-    Action('Export Slicer Packs to USB', execute_bash, DIR.USB.SLICER.TRANSFER),
     Action('Set Main Canbus UUID', set_main_canbus_uuid),
     Action('Set RP2040 (1) Canbus UUID', set_rp2040_one_uuid),
     Action('Set RP2040 (2) Canbus UUID', set_rp2040_two_uuid)
