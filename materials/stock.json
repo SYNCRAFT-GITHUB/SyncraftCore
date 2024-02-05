@@ -2,8 +2,8 @@
     {
         "name": "17-4PH",
         "code": "17-4PH",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Metal 0.4mm"
         ],
@@ -13,8 +13,8 @@
     {
         "name": "316 L",
         "code": "316L",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Metal 0.4mm"
         ],
@@ -24,8 +24,8 @@
     {
         "name": "Breakaway",
         "code": "Breakaway",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.25mm",
             "Standard 0.4mm"
@@ -38,8 +38,8 @@
     {
         "name": "ABS",
         "code": "ABS",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.25mm",
             "Standard 0.4mm",
@@ -54,8 +54,8 @@
     {
         "name": "ASA",
         "code": "ASA",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm"
         ],
@@ -65,8 +65,8 @@
     {
         "name": "CPE",
         "code": "CPE",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm",
             "Standard 0.8mm"
@@ -81,8 +81,8 @@
     {
         "name": "CPE +",
         "code": "CPE+",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm"
         ],
@@ -97,8 +97,8 @@
     {
         "name": "I 150",
         "code": "I150",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm"
         ],
@@ -111,8 +111,8 @@
     {
         "name": "I 151",
         "code": "I151",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Metal 0.4mm"
         ],
@@ -122,8 +122,8 @@
     {
         "name": "I 180",
         "code": "I180",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Fiber 0.6mm",
             "Metal 0.4mm"
@@ -134,8 +134,8 @@
     {
         "name": "NYLON",
         "code": "Nylon",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm",
             "Standard 0.8mm"
@@ -148,10 +148,32 @@
         "temp": 250
     },
     {
+        "name": "BVOH",
+        "code": "BVOH",
+        "brand": null,
+        "color": null,
+        "compatible": [
+            "Standard 0.4mm"
+        ],
+        "experimental": [],
+        "temp": 210
+    },
+    {
+        "name": "PVA",
+        "code": "PVA",
+        "brand": null,
+        "color": null,
+        "compatible": [
+            "Standard 0.4mm"
+        ],
+        "experimental": [],
+        "temp": 210
+    },
+    {
         "name": "PAHT CF15",
         "code": "PAHT CF15",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Fiber 0.6mm"
         ],
@@ -161,8 +183,8 @@
     {
         "name": "PC",
         "code": "PC",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm"
         ],
@@ -177,10 +199,11 @@
     {
         "name": "PC/ABS",
         "code": "PC-ABS",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
-            "Standard 0.4mm"
+            "Standard 0.4mm",
+            "Metal 0.4mm"
         ],
         "experimental": [
             "Standard 0.8mm"
@@ -190,8 +213,8 @@
     {
         "name": "PET",
         "code": "PET",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [],
         "experimental": [
             "Standard 0.25mm",
@@ -205,8 +228,8 @@
     {
         "name": "PET CF15",
         "code": "PET CF15",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Fiber 0.6mm"
         ],
@@ -216,8 +239,8 @@
     {
         "name": "PETG",
         "code": "PETG",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm",
             "Standard 0.8mm"
@@ -232,8 +255,8 @@
     {
         "name": "PLA",
         "code": "PLA",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.25mm",
             "Standard 0.4mm",
@@ -243,13 +266,29 @@
             "Fiber 0.6mm",
             "Metal 0.4mm"
         ],
-        "temp": 220
+        "temp": 225
+    },
+    {
+        "name": "PLA +",
+        "code": "PLA+",
+        "brand": null,
+        "color": null,
+        "compatible": [
+            "Standard 0.25mm",
+            "Standard 0.4mm",
+            "Standard 0.8mm"
+        ],
+        "experimental": [
+            "Fiber 0.6mm",
+            "Metal 0.4mm"
+        ],
+        "temp": 230
     },
     {
         "name": "PP",
         "code": "PP",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm"
         ],
@@ -264,8 +303,8 @@
     {
         "name": "PP GF30",
         "code": "PP GF30",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Fiber 0.6mm"
         ],
@@ -275,8 +314,8 @@
     {
         "name": "TO. PLA",
         "code": "Tough PLA",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.25mm",
             "Standard 0.4mm",
@@ -291,8 +330,8 @@
     {
         "name": "TPU 95A",
         "code": "TPU 95A",
-        "brand": "any",
-        "color": "any",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm",
             "Standard 0.8mm"
@@ -305,10 +344,10 @@
         "temp": 235
     },
     {
-        "name": "TPU D64",
-        "code": "TPU D64",
-        "brand": "any",
-        "color": "any",
+        "name": "TPU 64D",
+        "code": "TPU 64D",
+        "brand": null,
+        "color": null,
         "compatible": [
             "Standard 0.4mm",
             "Standard 0.8mm"
