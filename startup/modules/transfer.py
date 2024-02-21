@@ -19,11 +19,26 @@ def transfer():
 #*# <---------------------- SAVE_CONFIG ---------------------->
 #*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
 #*#
-#*# [stepper_z]
-#*# position_endstop = 340
-#*#
 #*# [probe]
-#*# z_offset = -0.3
+#*# z_offset = -0.300
+#*#
+#*# [bed_mesh default]
+#*# version = 1
+#*# points =
+#*# 	  0.066457, 0.065623, 0.055623, 0.042811
+#*# 	  0.020519, 0.031561, 0.041353, 0.022811
+#*# 	  -0.052293, 0.051248, 0.026248, -0.056356
+#*# 	  -0.035418, 0.051144, 0.047186, -0.094793
+#*# x_count = 4
+#*# y_count = 4
+#*# mesh_x_pps = 2
+#*# mesh_y_pps = 2
+#*# algo = bicubic
+#*# tension = 0.2
+#*# min_x = 30.0
+#*# max_x = 270.0
+#*# min_y = 30.0
+#*# max_y = 270.0
     """
 
     save_lines: bool = False

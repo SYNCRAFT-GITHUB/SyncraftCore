@@ -63,11 +63,9 @@ class DIR:
     class INTRO:
         PATH = os.path.join(syncraftcore_dir, 'intro')
         DEFAULT = os.path.join(syncraftcore_dir, 'intro', 'default.mp4')
-        COLORFUL = os.path.join(syncraftcore_dir, 'intro', 'colorful.mp4')
         NEON = os.path.join(syncraftcore_dir, 'intro', 'neon.mp4')
         INVADER = os.path.join(syncraftcore_dir, 'intro', 'invader.mp4')
         STAR = os.path.join(syncraftcore_dir, 'intro', 'star.mp4')
-        INTRO = os.path.join(syncraftcore_dir, 'intro', 'intro.py')
     class MACHINE:
         PATH = os.path.join(syncraftcore_dir, 'machine')
         APPLY = os.path.join(syncraftcore_dir, 'machine', 'apply.sh')
