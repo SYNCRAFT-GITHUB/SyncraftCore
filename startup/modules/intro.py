@@ -19,7 +19,7 @@ def play_boot_video():
             prop = yaml.safe_load(prop)
             preference = prop.get('intro-preference')
             if preference:
-                new_video_path = os.path.join(DIR.INTRO.PATH, preference)
+                new_video_path = os.path.join(DIR.INTRO.PATH, "preference", preference)
                 if os.path.exists(new_video_path):
                     return play_video(new_video_path)
 

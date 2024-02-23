@@ -13,6 +13,9 @@ env
 # Custom Startup
 /custom_startup
 
+# Custom Intro
+/intro/preference
+
 # Cache Folder
 /cache
 .cache
