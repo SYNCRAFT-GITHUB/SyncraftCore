@@ -25,23 +25,27 @@ def play_boot_video():
 
         current_date = datetime.now().date()
 
-        with open(DIR.SYSTEM.PDC.SV, 'r') as config:
-            content = ''.join(config.readlines()).lower()
+        if os.path.exists(DIR.SYSTEM.PDC.SV):
+            with open(DIR.SYSTEM.PDC.SV, 'r') as config:
+                content = ''.join(config.readlines()).lower()
 
-            if current_date.month == 9 and current_date.day == 17:
-                play_video(DIR.INTRO.STAR)
-                return None
+                if current_date.month == 9 and current_date.day == 17:
+                    play_video(DIR.INTRO.STAR)
+                    return None
 
-            if 'invader' in content and os.path.exists(DIR.INTRO.INVADER):
-                return play_video(DIR.INTRO.INVADER)
-            elif 'neon' in content and os.path.exists(DIR.INTRO.DEFAULT):
+                if 'invader' in content and os.path.exists(DIR.INTRO.INVADER):
+                    return play_video(DIR.INTRO.INVADER)
+                elif 'neon' in content and os.path.exists(DIR.INTRO.DEFAULT):
+                    return play_video(DIR.INTRO.DEFAULT)
+                elif 'evening' in content and os.path.exists(DIR.INTRO.DEFAULT):
+                    return play_video(DIR.INTRO.DEFAULT)
+                elif os.path.exists(DIR.INTRO.DEFAULT):
+                    return play_video(DIR.INTRO.DEFAULT)
+                else:
+                    pass
+        else:
+            os.path.exists(DIR.INTRO.DEFAULT):
                 return play_video(DIR.INTRO.DEFAULT)
-            elif 'evening' in content and os.path.exists(DIR.INTRO.DEFAULT):
-                return play_video(DIR.INTRO.DEFAULT)
-            elif os.path.exists(DIR.INTRO.DEFAULT):
-                return play_video(DIR.INTRO.DEFAULT)
-            else:
-                pass
 
     except Exception as e:
         print (f'[INTRO SCRIPT] Error: {e}')
