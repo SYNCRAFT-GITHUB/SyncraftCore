@@ -69,7 +69,7 @@ def transfer():
         except Exception as e:
             print(f"{name} ☓ Error trying to create PDC Cache Path, maybe a permission error?")
             print(f"{name} {e}")
-            exit()
+            
 
     # TRY TO FIND THE SAVECONFIG LINE IN PRINTER.CFG
     if os.path.exists(DIR.SYSTEM.PDC.PRINTER):
@@ -96,7 +96,7 @@ def transfer():
     except Exception as e:
         print(f'{name} ☓ Error trying to create PDC Cache.')
         print(f"{name} {e}")
-        exit()
+        
     try:
         with open(DIR.CACHE.CORE.PDC.PRINTER, 'w') as extracted:
             if (save_lines):
@@ -108,7 +108,7 @@ def transfer():
     except Exception as e:
         print(f'{name} ☓ Error trying to open/create the Printer File in PDC Cache.')
         print(f"{name} {e}")
-        exit()
+        
 
     # COPY BOTH SWIERVISION.CONF AND VARIABLES.CFG TO PDC CACHE
     if os.path.exists(DIR.SYSTEM.PDC.SV):
@@ -124,7 +124,6 @@ def transfer():
         print(f'{name} ✓ SV Fresh PDC (Backup) File copied to PDC Cache.')
     else:
         print(f'{name} ☓ No SV Backup file found at all.')
-        exit()
 
     if os.path.exists(DIR.SYSTEM.PDC.VARIABLES):
         shutil.copyfile(DIR.SYSTEM.PDC.VARIABLES, DIR.CACHE.CORE.PDC.VARIABLES)
@@ -139,7 +138,7 @@ def transfer():
         print(f'{name} ✓ Variables Fresh PDC (Backup) File copied to PDC Cache.')
     else:
         print(f'{name} ☓ No Variables Backup file found at all.')
-        exit()
+        
 
     # DELETE ALL CONTENT ON PRINTER_DATA/CONFIG
     if os.path.exists(DIR.SYSTEM.PDC.PATH):
@@ -152,7 +151,7 @@ def transfer():
         except Exception as e:
             print(f"{name} ☓ Error trying to create PDC Machine Path, maybe a permission error?")
             print(f"{name} {e}")
-            exit()
+            
 
     # TRANSFER ALL CONTENT FROM PDC_FRESH TO MACHINE
     if os.path.exists(DIR.STORE.FRESH.PDC.PATH):
@@ -160,17 +159,23 @@ def transfer():
         print(print(f'{name} ✓ Transferred all content from PDC Fresh to PDC Machine.'))
     else:
         print(f'{name} ☓ No Fresh PDC Available.')
-        exit()
+        
 
-    # COPY BOTH SWIERVISION.CONF AND VARIABLES.CFG TO PDC MACHINE
+    # COPY VARIABLES.CFG TO PDC MACHINE
     try:
-        shutil.copyfile(DIR.CACHE.CORE.PDC.SV, DIR.SYSTEM.PDC.SV)
         shutil.copyfile(DIR.CACHE.CORE.PDC.VARIABLES, DIR.SYSTEM.PDC.VARIABLES)
         print(print(f'{name} ✓ Transferred both SV and Variables Files from PDC Cache to PDC Machine.'))
     except Exception as e:
         print(f"{name} ☓ Error trying to copy files from Cache to PDC Machine.")
         print(f"{name} {e}")
-        exit()
+
+    # COPY SWIERVISION.CONF TO PDC MACHINE
+    try:
+        shutil.copyfile(DIR.CACHE.CORE.PDC.SV, DIR.SYSTEM.PDC.SV)
+        print(print(f'{name} ✓ Transferred both SV and Variables Files from PDC Cache to PDC Machine.'))
+    except Exception as e:
+        print(f"{name} ☓ Error trying to copy files from Cache to PDC Machine.")
+        print(f"{name} {e}")
 
     # INSERT MAIN CANBUS UUID INTO PRINTER.CFG
     try:
@@ -207,7 +212,7 @@ def transfer():
     except Exception as e:
         print(print(f'{name} ☓ Error trying to transform PDC Machine Backup Printer File into normal file.'))
         print(f"{name} {e}")
-        exit()
+        
 
     # APPEND CONTENT TO THAT PRINTER.CFG FILE
     try:
