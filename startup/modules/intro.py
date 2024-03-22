@@ -44,7 +44,7 @@ def play_boot_video():
                 else:
                     pass
         else:
-            os.path.exists(DIR.INTRO.DEFAULT):
+            if os.path.exists(DIR.INTRO.DEFAULT):
                 return play_video(DIR.INTRO.DEFAULT)
 
     except Exception as e:
