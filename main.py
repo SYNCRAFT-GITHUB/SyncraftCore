@@ -142,6 +142,7 @@ while (True):
     class PROP:
         MODEL = prop.get('model')
         BIRTH = prop.get('birth')
+        HEPA_COUNT = prop.get('hepa-count')
 
     hostname = socket.gethostname()
     last_date = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(DIR.STORE.FRESH.PATH)))
@@ -161,6 +162,7 @@ while (True):
 
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Model: ' + Color.BLUE + f'{PROP.MODEL}' + Color.RESET)
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Birth: ' + Color.BLUE + f'{PROP.BIRTH}' + Color.RESET)
+    print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'HEPA Counter: ' + Color.BLUE + f'{PROP.HEPA_COUNT}' + Color.RESET)
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Syncraft Host: ' + Color.BLUE + hostname + Color.RESET)
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Internet Access: ' + Color.BLUE + ('OK' if internet() else 'OFFLINE') + Color.RESET)
     print (Color.MAGENTA + '\n| ' + Color.YELLOW + 'Last Updated: ' + Color.BLUE + last_date + Color.RESET)
