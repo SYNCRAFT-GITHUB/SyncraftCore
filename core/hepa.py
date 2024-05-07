@@ -4,7 +4,7 @@ import yaml
 import datetime
 import os
 
-def set_hepa_start(action: str):
+def set_hepa_renew(action: str):
 
     if not os.path.exists(DIR.CORE.INFO):
         print(f'Prop file does not exists.')
@@ -14,7 +14,7 @@ def set_hepa_start(action: str):
 
         prop = yaml.safe_load(arquivo)
 
-        if action == 'start':
+        if action == 'renew':
             prop['last-hepa-replacement'] = datetime.date.today().strftime('%Y-%m-%d')
             print(f'last-hepa-replacement: {prop["last-hepa-replacement"]}')
             with open(DIR.CORE.INFO, 'w') as arquivo:
@@ -38,7 +38,7 @@ def set_hepa_start(action: str):
         return
 
 parser = argparse.ArgumentParser(description='Manage HEPA filter information')
-parser.add_argument('action', type=str, help='start/+/-')
+parser.add_argument('action', type=str, help='renew/+/-')
 args = parser.parse_args()
 
-set_hepa_start(args.action)
+set_hepa_renew(args.action)
