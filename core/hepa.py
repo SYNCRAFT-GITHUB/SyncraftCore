@@ -14,8 +14,16 @@ def set_hepa_renew(action: str):
 
         prop = yaml.safe_load(arquivo)
 
+        if action == 'reset':
+            prop['last-hepa-replacement'] = datetime.date.today().strftime('%Y-%m-%d')
+            prop['hepa-count'] = int(0)
+            with open(DIR.CORE.INFO, 'w') as arquivo:
+                yaml.dump(prop, arquivo)
+            return
+
         if action == 'renew':
             prop['last-hepa-replacement'] = datetime.date.today().strftime('%Y-%m-%d')
+            prop['hepa-count'] = int(prop.get('hepa-count')) + 1
             print(f'last-hepa-replacement: {prop["last-hepa-replacement"]}')
             with open(DIR.CORE.INFO, 'w') as arquivo:
                 yaml.dump(prop, arquivo)
@@ -38,7 +46,7 @@ def set_hepa_renew(action: str):
         return
 
 parser = argparse.ArgumentParser(description='Manage HEPA filter information')
-parser.add_argument('action', type=str, help='renew/+/-')
+parser.add_argument('action', type=str, help='reset/renew/+/-')
 args = parser.parse_args()
 
 set_hepa_renew(args.action)
