@@ -15,8 +15,8 @@ def set_hepa_start(action: str):
         prop = yaml.safe_load(arquivo)
 
         if action == 'start':
-            prop['hepa-start'] = datetime.date.today().strftime('%Y-%m-%d')
-            print(f'hepa-start: {prop["hepa-start"]}')
+            prop['last-hepa-replacement'] = datetime.date.today().strftime('%Y-%m-%d')
+            print(f'last-hepa-replacement: {prop["last-hepa-replacement"]}')
             with open(DIR.CORE.INFO, 'w') as arquivo:
                 yaml.dump(prop, arquivo)
             return
