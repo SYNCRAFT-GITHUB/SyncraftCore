@@ -30,8 +30,13 @@ def play_boot_video():
                 content = ''.join(config.readlines()).lower()
 
                 if current_date.month == 9 and current_date.day == 17:
-                    play_video(DIR.INTRO.STAR)
-                    return None
+                    return play_video(DIR.INTRO.STAR)
+
+                if current_date.month == 12 and current_date.day in [23, 24, 25]:
+                    return play_video(DIR.INTRO.SNOW)
+
+                if current_date.month == 1 and current_date.day == 1:
+                    return play_video(DIR.INTRO.FIREWORKS)
 
                 if 'invader' in content and os.path.exists(DIR.INTRO.INVADER):
                     return play_video(DIR.INTRO.INVADER)

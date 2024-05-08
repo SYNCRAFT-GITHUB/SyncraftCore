@@ -21,10 +21,10 @@ fi
 
 sudo cp "$script_directory/installer-mac.zip" "$folder_name"
 sudo cp "$script_directory/installer-win.zip" "$folder_name"
-
+sudo cp "$script_directory/installer-linux.zip" "$folder_name"
 
 if [ $? -eq 0 ]; then
     echo "Copied successfully to \"$folder_name\"."
 else
-    echo "Failed to copy..."
+    echo "Failed to copy!"
 fi

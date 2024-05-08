@@ -32,7 +32,7 @@ else:
 try:
     if not os.path.exists(DIR.CORE.INFO):
         os.system('sudo apt-get install python3-pip')
-        os.system(f'pip3 install -r {os.path.join(syncraftcore_dir, "core", "requirements.txt")}')
+        os.system(f'pip3 install -r {DIR.CORE.REQUIREMENTS}')
 except:
     print('Error trying to install python req.')
     pass
@@ -57,8 +57,8 @@ for directory in [DIR.STORE.FRESH.PATH, DIR.STORE.STOCK.PATH, DIR.BACKUPS.PATH]:
 print ('\n➤ Check if there\'s missing packages in your system? (recommended) [y/n]:')
 check_packages = input("➤ ")
 
-if check_packages.lower()[0] == 'y':
-    os.system(f'sudo bash {DIR.CORE.REQUIREMENTS}')
+if 'y' in check_packages.lower():
+    os.system(f'pip3 install -r {DIR.CORE.REQUIREMENTS}')
 
 if os.path.exists(DIR.CORE.INFO):
     print(str(Color.MAGENTA + '[*] ' + Color.CYAN + 'info File OK' + Color.RESET))

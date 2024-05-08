@@ -64,7 +64,8 @@ class DIR:
     class INTRO:
         PATH = os.path.join(syncraftcore_dir, 'intro')
         DEFAULT = os.path.join(syncraftcore_dir, 'intro', 'default.mp4')
-        NEON = os.path.join(syncraftcore_dir, 'intro', 'neon.mp4')
+        SNOW = os.path.join(syncraftcore_dir, 'intro', 'snow.mp4')
+        FIREWORKS = os.path.join(syncraftcore_dir, 'intro', 'fireworks.mp4')
         INVADER = os.path.join(syncraftcore_dir, 'intro', 'invader.mp4')
         STAR = os.path.join(syncraftcore_dir, 'intro', 'star.mp4')
     class MACHINE:
