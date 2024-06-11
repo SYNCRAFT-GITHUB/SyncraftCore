@@ -38,6 +38,8 @@ def play_boot_video():
                 if current_date.month == 1 and current_date.day == 1:
                     return play_video(DIR.INTRO.FIREWORKS)
 
+                if 'welcome' in content and os.path.exists(DIR.INTRO.FIRST_BOOT):
+                    return play_video(DIR.INTRO.FIRST_BOOT)
                 if 'invader' in content and os.path.exists(DIR.INTRO.INVADER):
                     return play_video(DIR.INTRO.INVADER)
                 elif 'neon' in content and os.path.exists(DIR.INTRO.DEFAULT):

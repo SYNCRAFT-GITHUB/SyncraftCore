@@ -64,6 +64,7 @@ class DIR:
     class INTRO:
         PATH = os.path.join(syncraftcore_dir, 'intro')
         DEFAULT = os.path.join(syncraftcore_dir, 'intro', 'default.mp4')
+        FIRST_BOOT = os.path.join(syncraftcore_dir, 'intro', 'first_boot.mp4')
         SNOW = os.path.join(syncraftcore_dir, 'intro', 'snow.mp4')
         FIREWORKS = os.path.join(syncraftcore_dir, 'intro', 'fireworks.mp4')
         INVADER = os.path.join(syncraftcore_dir, 'intro', 'invader.mp4')
