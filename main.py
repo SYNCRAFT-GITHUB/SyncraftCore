@@ -171,6 +171,9 @@ while (True):
     for i, action in enumerate(actions):
         print(Color.WHITE + f'[{i}] ' + Color.YELLOW + f'{action.title}' + Color.RESET)
 
+    print(Color.YELLOW + f'\Querying canbus ids' + Color.RESET)
+    subprocess.call(["python3", "/home/pi/katapult/scripts/flashtool.py", "-i", "can0", "-q"])
+
     print(Color.MAGENTA + '\n|' + Color.CYAN + ' Q ' + Color.RED + 'to Quit' + Color.RESET)
 
     user_input = input('\nACTION: ')
@@ -185,5 +188,3 @@ while (True):
                 action.function()
             else:
                 action.function(action.arg)
-
-    break
