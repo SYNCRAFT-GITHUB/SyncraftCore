@@ -26,7 +26,7 @@ def idexconfig_branch():
     try:
         return prop.get('idexconfig_branch')
     except:
-        return "master"
+        return "v1"
 
 def clone_in_path(repo_url, machine_dir, branch='master'):
     if os.path.exists(machine_dir):
@@ -90,7 +90,7 @@ def update():
     unzip_cmd = "unzip -q mainsail.zip"
     os.system(f"cd {DIR.CACHE.CORE.MAINSAIL.PATH} && wget -q {repo_url} && {unzip_cmd}")
 
-    clone_in_path("https://github.com/SYNCRAFT-GITHUB/SwierVision.git", DIR.CACHE.CORE.SV.PATH)
+    clone_in_path("https://github.com/SYNCRAFT-GITHUB/SwierVision.git", DIR.CACHE.CORE.SV.PATH, 'idex')
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git", DIR.CACHE.CORE.PDC.PATH, idexconfig_branch())
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper-led_effect", DIR.CACHE.CORE.KLE.PATH)
     clone_in_path("https://github.com/SYNCRAFT-GITHUB/klipper.git", DIR.CACHE.CORE.KLIPPER.PATH)

@@ -229,4 +229,21 @@ def transfer():
     # OVERWRITE FILES ON MACHINE PDC
     subprocess.run(['sudo', 'bash', DIR.PDC.TRANSFER], check=True)
 
+    # Move IDEXconfig calibrations to ~/printer_data/gcodes
+    try:
+        src = os.path.join(DIR.STORE.FRESH.PDC.PATH, "calibrations")
+        dst = os.path.join(DIR.SYSTEM.PDC.PATH, ".calibrations")
+
+        if not os.path.exists(src):
+            raise FileNotFoundError(f"{src} not found, update IDEXConfig")
+
+        if os.path.exists(dst):
+            shutil.rmtree(dst)
+            print(f"✓ Removed {dst}")
+        
+        shutil.copytree(src, dst)
+        print(f"✓ Copied '{src}' to '{dst}'.")
+    except Exception as e:
+        print(f"☓ Error: {e}")
+
     securePermission()
