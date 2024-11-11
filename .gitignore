@@ -24,6 +24,7 @@ env
 core/info.yaml
 
 # Store Folder
+/store
 /store/stock
 /store/fresh
 /store/kiauh
