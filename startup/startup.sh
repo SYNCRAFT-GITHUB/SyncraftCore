@@ -18,3 +18,5 @@ sudo cp config/build/rc.local /etc
 
 cd /home/pi
 rm -rf SyncraftCore
+
+sudo reboot
