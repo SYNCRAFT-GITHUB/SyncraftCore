@@ -2,6 +2,8 @@
 cd /home/pi/printer_data/config
 cp printer.cfg /home/pi/tmp-printer.cfg
 cp canbus_uuids.json /home/pi/tmp-canbus_uuids.json
+cp variables.cfg /home/pi/tmp-variables.cfg
+cp SwierVision.conf /home/pi/tmp-SwierVision.conf
 cd /home/pi/printer_data
 # TODO: Trocar para v1
 git clone -b v1-homologacao https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git
@@ -13,6 +15,8 @@ rm -rf config
 mv IDEXConfig config
 mv /home/pi/tmp-printer.cfg config/printer.cfg
 mv /home/pi/tmp-canbus_uuids.json config/canbus_uuids.json
+mv /home/pi/tmp-variables.cfg config/variables.cfg 
+mv /home/pi/tmp-SwierVision.conf config/SwierVision.conf
 
 # reclone SwierVision
 cd /home/pi
