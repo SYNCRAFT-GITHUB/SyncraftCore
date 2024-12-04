@@ -37,5 +37,6 @@ rm -rf SyncraftCore
 cd /home/pi/printer_data/config
 rm -rf /etc/rc.local
 cp build/rc.local /etc
+sudo chmod +x /etc/rc.local
 
 reboot
