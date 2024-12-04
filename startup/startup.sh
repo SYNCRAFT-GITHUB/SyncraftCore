@@ -5,8 +5,7 @@ cp canbus_uuids.json /home/pi/tmp-canbus_uuids.json
 cp variables.cfg /home/pi/tmp-variables.cfg
 cp SwierVision.conf /home/pi/tmp-SwierVision.conf
 cd /home/pi/printer_data
-# TODO: Trocar para v1
-git clone -b v1-dev https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git
+git clone -b v1 https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git
 if [ $? -neq 0 ]; then
 	exit 1
 fi
@@ -20,8 +19,7 @@ mv /home/pi/tmp-SwierVision.conf config/SwierVision.conf
 
 # reclone SwierVision
 cd /home/pi
-# TODO: Trocar para idex
-git clone -b idex-dev https://github.com/SYNCRAFT-GITHUB/SwierVision.git SwierVisionNew
+git clone -b idex https://github.com/SYNCRAFT-GITHUB/SwierVision.git SwierVisionNew
 if [ $? -neq 0 ]; then
 	exit 1
 fi
