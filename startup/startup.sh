@@ -2,26 +2,26 @@
 
 cd /home/pi
 cd printer_data/config
+git stash
 git pull
 
 if [ $? -neq 0 ]; then
 	exit 1
 fi
 
-git stash
 # TODO: Trocar para v1
 git checkout v1-homologacao
 
 # update SwierVision
 cd /home/pi
 cd SwierVision
+git stash
 git pull
 
 if [ $? -neq 0 ]; then
 	exit 1
 fi
 
-git stash
 # TODO: Trocar para idex
 git checkout idex-dev
 
