@@ -6,7 +6,7 @@ cp variables.cfg /home/pi/tmp-variables.cfg
 cp SwierVision.conf /home/pi/tmp-SwierVision.conf
 cd /home/pi/printer_data
 # TODO: Trocar para v1
-git clone -b v1-homologacao https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git
+git clone -b v1-dev https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git
 if [ $? -neq 0 ]; then
 	exit 1
 fi
