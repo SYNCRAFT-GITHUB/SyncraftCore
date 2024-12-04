@@ -1,42 +1,37 @@
-output_file=/home/pi/syncraftcore_kill_output.txt
-echo "" > $output_file
-
-# update IDEXConfig
-
+# reclone IDEXConfig
 cd /home/pi/printer_data/config
-sudo git branch >> $output_file
-sudo git stash >> $output_file
-sudo git pull >> $output_file
-
-if [ $? -neq 0 ]; then
-	exit 1
-fi
-
+cp printer.cfg /home/pi/tmp-printer.cfg
+cp canbus_uuids.json /home/pi/tmp-canbus_uuids.json
+cd /home/pi/printer_data
 # TODO: Trocar para v1
-sudo git checkout v1-homologacao >> $output_file
-sudo git branch >> $output_file
-
-# update SwierVision
-cd /home/pi/SwierVision
-sudo git stash >> $output_file
-sudo git pull >> $output_file
-
+git clone -b v1-homologacao https://github.com/SYNCRAFT-GITHUB/IDEXConfig.git
 if [ $? -neq 0 ]; then
 	exit 1
 fi
+sudo chown -R pi IDEXConfig
+rm -rf config
+mv IDEXConfig config
+mv /home/pi/tmp-printer.cfg config/printer.cfg
+mv /home/pi/tmp-canbus_uuids.json config/canbus_uuids.json
 
+# reclone SwierVision
+cd /home/pi
 # TODO: Trocar para idex
-sudo git checkout idex-dev >> $output_file
-
-# replace rc.local with new one
-
-cd /home/pi/printer_data/config
-sudo rm -rf /etc/rc.local >> $output_file
-sudo cp build/rc.local /etc >> $output_file
+git clone -b idex-dev https://github.com/SYNCRAFT-GITHUB/SwierVision.git SwierVisionNew
+if [ $? -neq 0 ]; then
+	exit 1
+fi
+rm -rf SwierVision
+mv SwierVisionNew SwierVision
+sudo chown -R pi SwierVision
 
 # remove SyncraftCore
-
 cd /home/pi
-sudo rm -rf SyncraftCore >> $output_file
+rm -rf SyncraftCore
 
-sudo reboot
+# replace new rc.local
+cd /home/pi/printer_data/config
+rm -rf /etc/rc.local
+cp build/rc.local /etc
+
+reboot
