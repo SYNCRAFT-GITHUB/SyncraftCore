@@ -1,14 +1,22 @@
-from startup.modules.transfer import transfer
-from startup.modules.upgrade import upgrade
-from startup.modules.restart_services import restart_services
-from startup.modules.intro import play_boot_video
+import os
+import configparser
+import json
 
-# rafaelSwi /*
-# Executes all Python functions in sequence when booting the machine.
-# If you want to add something, create the function in a separate file,
-# import the file, and call the function.
+config = configparser.ConfigParser()
+config.read("/home/pi/printer_data/config/printer.cfg")
 
-transfer()
-upgrade()
-restart_services()
-play_boot_video()
+if "mcu" in config:
+	mcu_canbus_uuid = config["mcu"]["canbus_uuid"]
+
+if "mcu rp2040" in config:
+	mcu_rp2040_canbus_uuid = config["mcu rp2040"]["canbus_uuid"]
+
+canbus_uuids_json = {
+	"mcu": mcu_canbus_uuid,
+	"mcu rp2040": mcu_rp2040_canbus_uuid
+}
+
+with open("/home/pi/printer_data/config/canbus_uuids.json", "w") as canbus_uuids_json_file:
+	json.dump(canbus_uuids_json, canbus_uuids_json_file)
+
+os.system("sh /home/pi/SyncraftCore/startup/startup.sh")
